@@ -9,18 +9,15 @@ Write-Host "It is: $($time.ToLongDateString())"
 Write-Host "You're running PowerShell version: $psVersion" -foregroundColor Cyan
 
 function Prompt {
-
-$curtime = Get-Date
-
-Write-Host -NoNewLine "p" -foregroundColor $fg
-Write-Host -NoNewLine "$" -foregroundColor Green
-Write-Host -NoNewLine "[" -foregroundColor Yellow
-Write-Host -NoNewLine ("{0:HH}:{0:mm}:{0:ss}" -f (Get-Date)) -foregroundColor $fg
-Write-Host -NoNewLine "]" -foregroundColor Yellow
-Write-Host -NoNewLine ">" -foregroundColor Red
+Write-Host -NoNewLine $curUser -foregroundColor Yellow
+Write-Host -NoNewLine "|" -foregroundColor Magenta
+Write-Host -NoNewLine "$curComp" -foregroundColor Blue
+Write-Host -NoNewLine "[" -foregroundColor Magenta
+Write-Host -NoNewLine $pwd -foregroundColor DarkGreen -backgroundColor Cyan
+Write-Host -NoNewLine "]" -foregroundColor Magenta
+Write-Host -NoNewLine "`n$>>" -foregroundColor DarkBlue
 
 $host.UI.RawUI.WindowTitle = "PS >> User: $curUser >> Current DIR: $((Get-Location).Path)"
 
 Return " "
-
 }
