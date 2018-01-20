@@ -1,0 +1,12 @@
+" Vim 
+set tabstop=8
+set softtabstop=0
+set expandtab
+set shiftwidth=4
+set smarttab
+set pastetoggle=<F2>
+
+" Powerline
+set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
+set laststatus=2
+set t_Co=256
