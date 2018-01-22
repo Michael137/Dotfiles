@@ -5,8 +5,20 @@ set expandtab
 set shiftwidth=4
 set smarttab
 set pastetoggle=<F2>
+" Use :retab to replace spaces with tabs when needed
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
 set laststatus=2
 set t_Co=256
+
+" Autocomplete
+ino " ""<left>
+ino ' ''<left>
+ino ( ()<left>
+ino [ []<left>
+ino { {}<left>
+ino {<CR> {<CR>}<ESC>O
+ino {;<CR> {<CR>};<ESC>O
+ino /* /*   */<left><left><left><left>
+ino /*<CR> /*<CR>** <CR>*/<UP><right><right>
