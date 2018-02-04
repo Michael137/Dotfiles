@@ -1,5 +1,6 @@
 set -g default-terminal "screen-256color"
-powerline-config tmux setup
+# powerline-config tmux setup
+source /usr/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf
 
 set -g mode-mouse on
 set -g mouse-select-pane on
