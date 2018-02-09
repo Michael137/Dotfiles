@@ -22,3 +22,5 @@ ino {<CR> {<CR>}<ESC>O
 ino {;<CR> {<CR>};<ESC>O
 ino /* /*   */<left><left><left><left>
 ino /*<CR> /*<CR>** <CR>*/<UP><right><right>
+
+colorscheme elflord
