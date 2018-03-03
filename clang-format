@@ -1,0 +1,14 @@
+AlignTrailingComments: true
+AllowShortFunctionOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+IndentWidth: 4
+Language: Cpp
+NamespaceIndentation: None
+PointerBindsToType: true
+SpacesInParentheses: true
+Standard: Cpp11
+TabWidth: 4
+UseTab: Always
+# BasedOnStyle: WebKit
