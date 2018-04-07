@@ -3,7 +3,7 @@ AllowShortFunctionsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: true
 AllowShortLoopsOnASingleLine: false
 BinPackArguments: true
-BreakBeforeBraces: Linux
+BreakBeforeBraces: Mozilla
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
 IndentWidth: 4
 Language: Cpp
