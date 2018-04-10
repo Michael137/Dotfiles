@@ -3,18 +3,25 @@ AllowShortFunctionsOnASingleLine: true
 AllowShortIfStatementsOnASingleLine: true
 AllowShortLoopsOnASingleLine: false
 BinPackArguments: true
-BreakBeforeBraces: Linux
+BreakBeforeBraces: Mozilla
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex:           '^"*/'
+    Priority:        2
+  - Regex:           '^<*/'
+    Priority:        1
 IndentWidth: 4
 Language: Cpp
 NamespaceIndentation: None
 PointerBindsToType: true
-SortIncludes: false
+# PointerAlignment: left
+SortIncludes: true
 SortUsingDeclarations: true
 SpaceAfterTemplateKeyword: false
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeCtorInitializerColon: true
-SpaceBeforeInheritanceColon: true
+# SpaceBeforeCtorInitializerColon: true
+# SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: false
 SpaceInEmptyParentheses: false
 SpacesInParentheses: true
