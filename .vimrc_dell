@@ -4,7 +4,7 @@
 set pastetoggle=<F2>
 
 " Tabs
-set noet ci pi sts=0 sw=4 ts=4
+set noet ci pi sts=8 sw=8 ts=8
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
