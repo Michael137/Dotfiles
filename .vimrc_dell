@@ -1,11 +1,10 @@
 " Vim 
-set tabstop=8
-set softtabstop=0
-set expandtab
-set shiftwidth=4
-set smarttab
+
+" Hotkeys
 set pastetoggle=<F2>
-" Use :retab to replace spaces with tabs when needed
+
+" Tabs
+set noet ci pi sts=0 sw=4 ts=4
 
 " Powerline
 set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim
@@ -23,5 +22,16 @@ ino {;<CR> {<CR>};<ESC>O
 ino /* /*   */<left><left><left><left>
 ino /*<CR> /*<CR>** <CR>*/<UP><right><right>
 
+" Colors
 colorscheme elflord
+
+" Mouse settings
 set mouse=a
+
+" Whitespace
+set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+
+" Highlighting
+set number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+set cursorline
