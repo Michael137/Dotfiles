@@ -55,6 +55,8 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 set cursorline
 
 " Powerline
+" For multiline clone this
+" https://github.com/yongjhih/rc/blob/master/.config/powerline/themes/shell/default.json
 
 " Easymotion
 let mapleader = "\<Space>"
