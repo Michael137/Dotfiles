@@ -40,6 +40,7 @@ set number
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 set cursorline
 hi SpecialKey ctermfg=247 ctermbg=234
+hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
 " Powerline
 " set rtp+=/usr/lib/python3.6/site-packages/powerline/bindings/vim
