@@ -10,6 +10,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'rhysd/vim-clang-format'
 call vundle#end()
 filetype plugin indent on
 
@@ -56,3 +57,7 @@ set cursorline
 
 " Easymotion
 let mapleader = "\<Space>"
+
+" toggle hybrid line numbers
+set !number !relativenumber
+set spell spelllang=en_us
