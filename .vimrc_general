@@ -58,6 +58,8 @@ set cursorline
 " Easymotion
 let mapleader = "\<Space>"
 
-" toggle hybrid line numbers
-set !number !relativenumber
-set spell spelllang=en_us
+" Hybrid line numbers
+set nu relativenumber
+
+" Spell checker
+map <F6> :setlocal spell spelllang=en_us<CR>
