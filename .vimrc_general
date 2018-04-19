@@ -1,0 +1,58 @@
+" Vundle
+" When adding new plugins call: "PluginInstall"
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+call vundle#end()
+filetype plugin indent on
+
+" Vim 
+
+" Hotkeys
+set pastetoggle=<F2>
+
+" Tabs
+set noet ci pi sts=8 sw=8 ts=8
+
+" vim-airline
+let g:airline_theme='angr'
+let g:airline_powerline_fonts = 1
+" set laststatus=2
+set t_Co=256
+
+" Autocomplete
+ino " ""<left>
+ino ' ''<left>
+ino ( ()<left>
+ino [ []<left>
+ino { {}<left>
+ino {<CR> {<CR>}<ESC>O
+ino {;<CR> {<CR>};<ESC>O
+ino /* /*   */<left><left><left><left>
+ino /*<CR> /*<CR>** <CR>*/<UP><right><right>
+
+" Colors
+" colorscheme elflord
+colorscheme badwolf
+
+" Mouse settings
+set mouse=a
+
+" Whitespace
+set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+hi SpecialKey ctermfg=247 ctermbg=234
+
+" Highlighting
+set number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+set cursorline
+
+" Easymotion
+let mapleader = "\<Space>"
