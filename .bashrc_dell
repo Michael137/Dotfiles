@@ -129,3 +129,7 @@ powerline_prompt() {
 }
 
 powerline_prompt
+
+export PATH=/home/gardei/Compilers/gcc/install/bin:$PATH
+export PATH=/home/gardei/Compilers/clang/install/bin:$PATH
+export DISPLAY=:0
