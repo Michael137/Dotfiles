@@ -1,0 +1,39 @@
+{
+   "checksum": "cb7ec8b47782fac6ba60b2162c878b51",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13168471832094706",
+            "id": "5",
+            "meta_info": {
+               "last_visited_desktop": "13168486866959692"
+            },
+            "name": "suckless.org software that sucks less",
+            "type": "url",
+            "url": "https://suckless.org/"
+         } ],
+         "date_added": "13168209477539550",
+         "date_modified": "13168471832094706",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13168209477539554",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13168209477539555",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

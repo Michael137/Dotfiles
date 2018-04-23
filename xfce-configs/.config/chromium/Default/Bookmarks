@@ -1,0 +1,48 @@
+{
+   "checksum": "d6aafca0428953a4a40ee1dd0a8a8e95",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13168471832094706",
+            "id": "5",
+            "meta_info": {
+               "last_visited_desktop": "13168486866959692"
+            },
+            "name": "suckless.org software that sucks less",
+            "type": "url",
+            "url": "https://suckless.org/"
+         }, {
+            "date_added": "13168537148928494",
+            "id": "7",
+            "meta_info": {
+               "last_visited_desktop": "13168537148929962"
+            },
+            "name": "Crafting Interpreters",
+            "type": "url",
+            "url": "http://www.craftinginterpreters.com/"
+         } ],
+         "date_added": "13168209477539550",
+         "date_modified": "13168537148928494",
+         "id": "1",
+         "name": "Bookmarks bar",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13168209477539554",
+         "date_modified": "0",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13168209477539555",
+         "date_modified": "0",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

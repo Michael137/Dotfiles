@@ -1,0 +1,8 @@
+[Added Associations]
+x-scheme-handler/http=exo-web-browser.desktop
+x-scheme-handler/https=exo-web-browser.desktop
+image/jpeg=ristretto.desktop;
+
+[Default Applications]
+application/x-ica=wfica.desktop
+application/vnd.citrix.receiver.configure=new_store.desktop

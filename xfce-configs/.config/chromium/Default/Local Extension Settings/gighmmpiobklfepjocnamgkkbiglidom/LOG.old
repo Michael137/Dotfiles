@@ -1,0 +1,26 @@
+2018/04/22-23:33:52.307 32482 Reusing MANIFEST /home/gardeimasei/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/MANIFEST-000001
+2018/04/22-23:33:52.308 32482 Recovering log #110
+2018/04/22-23:33:52.308 32482 Reusing old log /home/gardeimasei/.config/chromium/Default/Local Extension Settings/gighmmpiobklfepjocnamgkkbiglidom/000110.log 
+2018/04/22-23:34:53.168 322 Level-0 table #116: started
+2018/04/22-23:34:53.351 322 Level-0 table #116: 3281685 bytes OK
+2018/04/22-23:34:53.396 322 Delete type=0 #110
+2018/04/22-23:35:54.480 322 Level-0 table #118: started
+2018/04/22-23:35:54.727 322 Level-0 table #118: 3281648 bytes OK
+2018/04/22-23:35:54.761 322 Delete type=0 #115
+2018/04/23-00:34:53.176 322 Level-0 table #120: started
+2018/04/23-00:34:53.357 322 Level-0 table #120: 3281568 bytes OK
+2018/04/23-00:34:53.435 322 Delete type=0 #117
+2018/04/23-00:43:23.005 322 Level-0 table #122: started
+2018/04/23-00:43:23.275 322 Level-0 table #122: 3281645 bytes OK
+2018/04/23-00:43:23.388 322 Delete type=0 #119
+2018/04/23-00:43:23.389 322 Compacting 4@0 + 2@1 files
+2018/04/23-00:43:23.599 322 Generated table #123@0: 1 keys, 3281405 bytes
+2018/04/23-00:43:23.654 322 Generated table #124@0: 5 keys, 421 bytes
+2018/04/23-00:43:23.654 322 Compacted 4@0 + 2@1 files => 3281826 bytes
+2018/04/23-00:43:23.833 322 compacted to: files[ 0 2 1 0 0 0 0 ]
+2018/04/23-00:43:23.833 322 Delete type=2 #122
+2018/04/23-00:43:23.834 322 Delete type=2 #118
+2018/04/23-00:43:23.834 322 Delete type=2 #113
+2018/04/23-00:43:23.835 322 Delete type=2 #112
+2018/04/23-00:43:23.835 322 Delete type=2 #116
+2018/04/23-00:43:23.835 322 Delete type=2 #120
