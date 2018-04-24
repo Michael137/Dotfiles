@@ -6,15 +6,23 @@ gaps outer 15
 
 # Global vars
 set $mod Mod4
-font pango:Dejavu Sans Mono for Powerline-10
+font pango:Dejavu Sans Mono 9
 set $term urxvt
 set $browser firefox
 
 # Applications startup
 exec --no-startup-id nm-applet
-exec_always --no-startup-id setxkbmap -layout uk
 exec --no-startup-id unclutter
 exec --no-startup-id compton
+exec_always --no-startup-id setxkbmap -layout gb
+
+# Scratchpad
+exec --no-startup-id $term -name dropdown -e tmux
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] resize set 625 400
+for_window [instance="dropdown"] move position center
+for_window [instance="dropdown"] move scratchpad
+bindsym $mode+u [instance="dropdown"] scratchpad show; move position center
 
 # Wallpaper
 exec --no-startup-id feh --bg-scale ~/.config/wallpaper.jpg
@@ -54,10 +62,10 @@ bindsym $mod+Ctrl+l move right
 #bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+Alt+h split h
+bindsym $mod+Mod1+h split h
 
 # split in vertical orientation
-bindsym $mod+Alt+v split v
+bindsym $mod+Mod1+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -117,11 +125,3 @@ bindsym $mod+shift+l resize grow width 10 px or 10 ppt
 bar {
         status_command i3status
 }
-
-# Scratchpad
-for_window [instance="dropdown"] floating enable
-for_window [instance="dropdown"] resize 625 400
-for_window [instance="dropdown"] move position center
-for_window [instance="dropdown"] move scratchpad
-exec --no-startup-id $term -name dropdown -e tmux
-bindsym $mode+u [instance="dropdown"] scrachpad show; move position center
