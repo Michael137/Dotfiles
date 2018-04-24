@@ -22,20 +22,10 @@ filetype plugin indent on
 " execute pathogen#infect()
 
 " Tabs
-set noet ci pi sts=8 sw=8 ts=8
+set noet ci pi sw=4 ts=4
 
 " Hotkeys
 set pastetoggle=<F2>
-
-" Autocomplete
-ino " ""<left>
-ino ' ''<left>
-ino ( ()<left>
-ino [ []<left>
-ino { {}<left>
-ino {<CR> {<CR>}<ESC>O
-ino {;<CR> {<CR>};<ESC>O
-ino /* /**/<left>
 
 " Colors
 " colorscheme elflord
@@ -66,7 +56,7 @@ let mapleader = "\<Space>"
 " vim-clang-format
 let g:clang_format#style_options = {
 \ "Language" : "Cpp",
-\ "AccessModifierOffset" : 8,
+\ "AccessModifierOffset" : 4,
 \ "AlignAfterOpenBracket " : "Align",
 \ "AlignConsecutiveAssignments" : "true",
 \ "AlignConsecutiveDeclarations": "false",
@@ -95,8 +85,8 @@ let g:clang_format#style_options = {
 \ "ColumnLimit": 80,
 \ "CompactNamespaces" : "false",
 \ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
-\ "ConstructorInitializerIndentWidth": 8,
-\ "ContinuationIndentWidth": 8,
+\ "ConstructorInitializerIndentWidth": 4,
+\ "ContinuationIndentWidth": 4,
 \ "Cpp11BracedListStyle" : "true",
 \ "DerivePointerAlignment" : "false",
 \ "DisableFormat" : "false",
@@ -105,7 +95,7 @@ let g:clang_format#style_options = {
 \ "IncludeBlocks" : "Preserve",
 \ "IndentCaseLabels" : "true",
 \ "IndentPPDirectives" : "AfterHash",
-\ "IndentWidth": 8,
+\ "IndentWidth": 4,
 \ "IndentWrappedFunctionNames" : "false",
 \ "KeepEmptyLinesAtTheStartOfBlocks" : "false",
 \ "MaxEmptyLinesToKeep": 1,
@@ -136,5 +126,33 @@ let g:clang_format#style_options = {
 \ "SpacesInParentheses" : "true",
 \ "SpacesInSquareBrackets" : "false",
 \ "Standard" : "Cpp11",
-\ "TabWidth": 8,
+\ "TabWidth": 4,
 \ "UseTab" : "ForIndentation" }
+
+" Hybrid line numbers
+set nu relativenumber
+
+" Spell checker
+map <F6> :setlocal spell spelllang=en_us<CR>
+
+"" Guides
+" Navigation
+inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+map <Space><Tab> <Esc>/<++><Enter>"_c4l
+inoremap ;gui <++>
+
+" C++
+autocmd FileType cpp,c inoremap ;i #include<Space><><Enter><++><Esc>k$F<li
+autocmd FileType cpp,c inoremap ;m int main() {<Enter><++>;<Enter>return 0;<Enter>}<Esc>G?main<CR>
+autocmd FileType cpp,c inoremap ;t template<><Space><++><Esc>Felli
+
+" Autocomplete
+inoremap ;" "" <++><Esc>F"i
+inoremap ;' '' <++><Esc>F'i
+inoremap ;( () <++><Esc>F)i
+inoremap ;[ [] <++><Esc>F]i
+inoremap ;{ {} <++><Esc>F}i
+inoremap ;< <> <++><Esc>F>i
+inoremap ;{<Enter> {<Enter><Enter>}<Esc><UP>i<Tab>
+inoremap ;/*<CR> /*<CR><Esc>0R** <CR>*/<Enter><++><Esc><UP><UP>A
