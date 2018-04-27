@@ -35,3 +35,6 @@ set -g theme_newline_cursor yes
 set -xg DISPLAY :0
 set -xg PATH /home/gardei/Compilers/gcc/install/bin $PATH
 set -xg PATH /home/gardei/Compilers/clang/install/bin $PATH
+
+set -xg LD_LIBRARY_PATH /home/gardei/Compilers/gcc/install/lib64 $LD_LIBRARY_PATH
+set -xg LD_LIBRARY_PATH /home/gardei/Compilers/clang/install/lib $LD_LIBRARY_PATH
