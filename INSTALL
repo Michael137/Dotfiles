@@ -1,0 +1,49 @@
+~ Common issues
+
+# Colorscheme in vim not displaying/working
+May need to add "syntax on" to vimrc. Try removing vimrc and running "colorscheme elflord" in a fresh vim session. Check the $TERM variable.
+Add to vimrc:
+set t_Co=256
+set termguicolors
+syntax on
+
+https://stackoverflow.com/questions/37081223/why-colors-are-not-displaying-in-vim-oh-my-zsh
+
+# Broken special characters
+Use a powerline font. E.g: https://aur.archlinux.org/packages/ttf-dejavu-sans-mono-powerline-git/
+
+Add "DejaVu Sans Mono for Powerline" wherever a font is configured.
+
+# Keyboard layout is broken in WM
+Follow the Archwiki to set up keyboard layout. https://wiki.archlinux.org/index.php/installation_guide#Set_the_keyboard_layout
+
+KEYMAP=uk
+LANG=en_GB.UTF-8
+
+The WM has its own keyboard layout configuration. In X this is controlled through the setxkbmap command. https://www.reddit.com/r/archlinux/comments/34ifbj/keyboard_layout/
+Simply add following to the ~/.xinitrc: setxkbmap gb
+
+# Start WM on startup
+Done in the shell profile script (e.g. ~/.zprofile or ~/.bash_profile). Follow the wiki: https://wiki.archlinux.org/index.php/Xinit#Autostart_X_at_login
+
+# Arch doesn't pick up wifi on boot
+See the Wiki and read this forum thread: https://bbs.archlinux.org/viewtopic.php?id=200895
+
+Run following:
+
+    ip link
+    systemctl enable dhcpcd
+    systemctl enable dhcpcd@enp0s3.service
+    dhcpcd
+    ip link set enp0s3 up
+
+# VirtualBox Guest Additions resizing not working
+
+Follow the Arch wiki on virtual box to set up the guest additions. (https://wiki.archlinux.org/index.php/VirtualBox#Install_the_Guest_Additions)
+Check if "VBoxClient-all" fixes the issue. (https://unix.stackexchange.com/questions/307525/i3wm-running-in-arch-linux-guest-virtualbox-stops-auto-resizing)
+Set following option in VirtualBox:  File > Preferences > Display > Maximum Guest Screen Size: None (https://bbs.archlinux.org/viewtopic.php?id=211835)
+
+~ Useful links
+-dwm overview: https://sites.google.com/site/lazyboxx/-articles/dwm-a-newbie-s-guide
+-dwm tutorial: https://dwm.suckless.org/tutorial/
+-Arch wiki on VirtualBox: https://wiki.archlinux.org/index.php/VirtualBox
