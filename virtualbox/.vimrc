@@ -1,6 +1,7 @@
 " Vundle
 " When adding new plugins call: "PluginInstall"
 set nocompatible
+syntax on
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
