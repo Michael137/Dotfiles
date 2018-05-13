@@ -5,7 +5,7 @@ gaps inner 15
 gaps outer 15
 
 # Global vars
-set $mod Mod4
+set $mod Mod1
 font pango:Dejavu Sans Mono 9
 set $term urxvt
 set $browser firefox
