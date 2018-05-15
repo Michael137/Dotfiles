@@ -1,6 +1,7 @@
 " Vundle
 " When adding new plugins call: "PluginInstall"
 set nocompatible
+syntax on
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -13,7 +14,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rhysd/vim-clang-format'
 call vundle#end()
 filetype plugin indent on
-syntax on
 
 " Vim 
 
@@ -26,7 +26,7 @@ set noet ci pi sw=4 ts=4
 " vim-airline
 let g:airline_theme='angr'
 let g:airline_powerline_fonts = 1
-" set laststatus=2
+set laststatus=2
 set t_Co=256
 
 " Colors
