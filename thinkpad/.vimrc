@@ -153,3 +153,9 @@ inoremap ;< <> <++><Esc>F>i
 inoremap ;{<Enter> {<Enter><Enter>}<Esc><UP>i<Tab>
 inoremap ;/*<CR> /*<CR><Esc>0R** <CR>*/<Enter><++><Esc><UP><UP>A
 
+"" Latex previewer
+" for Vim plugin
+let g:livepreview_previewer = 'mupdf'
+let g:livepreview_engine = 'lualatex' . ''
+nmap <F12> :LLPStartPreview<cr>
+autocmd Filetype tex setl updatetime=1000
