@@ -12,7 +12,6 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rhysd/vim-clang-format'
-Plugin 'xuhdev/vim-latex-live-preview'
 call vundle#end()
 filetype plugin indent on
 
@@ -155,7 +154,5 @@ inoremap ;/*<CR> /*<CR><Esc>0R** <CR>*/<Enter><++><Esc><UP><UP>A
 
 "" Latex previewer
 " for Vim plugin
-let g:livepreview_previewer = 'mupdf'
-let g:livepreview_engine = 'lualatex' . ''
-nmap <F12> :LLPStartPreview<cr>
-autocmd Filetype tex setl updatetime=1000
+autocmd FileType tex map ;C :!lualatex %<CR><CR>
+autocmd FileType tex map ;M :!mupdf $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR>
