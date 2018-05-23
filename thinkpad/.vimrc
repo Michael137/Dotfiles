@@ -12,6 +12,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'xuhdev/vim-latex-live-preview'
 call vundle#end()
 filetype plugin indent on
 
