@@ -8,7 +8,7 @@ Sets up:
 - st
 - slstatus
 - fonts
-- zsh (oh-my-zsh,custom theme), bash prompts
+- fish (oh-my-fish), zsh (oh-my-zsh,custom theme), bash prompts
 - compiler toolchains
 - xorg configs
 - git
