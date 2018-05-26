@@ -1,0 +1,9 @@
+[user]
+	email = michaelbuch12@gmail.com
+	name = Michael Buch
+
+[sendemail]
+	from = michaelbuch12@gmail.com
+	smtpserver = smtp.gmail.com
+	smtpencryption = tls
+	smtpuser = michaelbuch12@gmail.com
