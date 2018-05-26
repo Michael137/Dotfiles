@@ -8,4 +8,15 @@ Sets up:
 - st
 - slstatus
 - fonts
-- zsh, bash prompts
+- zsh (oh-my-zsh,custom theme), bash prompts
+- compiler toolchains
+- xorg configs
+- git
+- Virtualbox support
+- Arch support
+- Latex
+- Browser
+
+Warns on uninstalled dependencies.
+
+TODO: arch chroot installer
