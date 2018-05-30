@@ -9,6 +9,7 @@ Sets up:
 - slstatus
 - fonts
 - fish (oh-my-fish), zsh (oh-my-zsh,custom theme), bash prompts
+- zsh-autosuggestions
 - compiler toolchains
 - xorg configs
 - git
