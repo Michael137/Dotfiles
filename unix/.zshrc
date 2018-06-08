@@ -100,9 +100,9 @@ function cd_with_dir {
 	cd $1 && dir -UA | head -10
 }
 
-alias gh="cd_with_dir ~"
-alias gg="cd_with_dir ~/Git"
-alias gd="cd_with_dir ~/Git/Dotfiles"
+alias gdh="cd_with_dir ~"
+alias gdg="cd_with_dir ~/Git"
+alias gdd="cd_with_dir ~/Git/Dotfiles"
 alias la="ls -A"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
