@@ -47,3 +47,13 @@ Set following option in VirtualBox:  File > Preferences > Display > Maximum Gues
 -dwm overview: https://sites.google.com/site/lazyboxx/-articles/dwm-a-newbie-s-guide
 -dwm tutorial: https://dwm.suckless.org/tutorial/
 -Arch wiki on VirtualBox: https://wiki.archlinux.org/index.php/VirtualBox
+
+Audio
+=====
+alsa-utils pulseaudio-alsa pulseaudio
+
+amixer -M set Master 5%+
+https://unix.stackexchange.com/questions/32206/set-volume-from-terminal
+
+amixer -D pulse set Master 1+ toggle
+https://askubuntu.com/questions/65764/how-do-i-toggle-sound-with-amixer
