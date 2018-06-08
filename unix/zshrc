@@ -61,6 +61,7 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+#TODO: zsh autosuggestions
   git
 )
 
@@ -94,3 +95,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+function cd_with_dir {
+	cd $1 && dir -UA | head -10
+}
+
+alias gdh="cd_with_dir ~"
+alias gdg="cd_with_dir ~/Git"
+alias la="ls -A"
+alias vimrc="vim ~/.vimrc"
+alias bashrc="vim ~/.bashrc"
+alias zshrc="vim ~/.zshrc"
