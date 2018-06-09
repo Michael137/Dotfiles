@@ -57,3 +57,6 @@ https://unix.stackexchange.com/questions/32206/set-volume-from-terminal
 
 amixer -D pulse set Master 1+ toggle
 https://askubuntu.com/questions/65764/how-do-i-toggle-sound-with-amixer
+Broswer
+======
+Firefox: lastpass, vim-vixen

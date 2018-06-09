@@ -129,8 +129,12 @@ let g:clang_format#style_options = {
 " Hybrid line numbers
 set nu relativenumber
 
+"" Tool shortcuts
 " Spell checker
 map <F6> :setlocal spell spelllang=en_us<CR>
+" Formatters
+autocmd FileType cpp,c map <C-f> :ClangFormat<CR>
+autocmd FileType rust map <C-f> :RustFmt<CR>
 
 "" Guides
 " Navigation
