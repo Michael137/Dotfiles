@@ -58,3 +58,5 @@ alias fishrc "vim ~/.config/fish/config.fish"
 if test -d $HOME/.cargo/env
 	source $HOME/.cargo/env
 end
+
+set -g EDITOR "vim"

@@ -45,3 +45,5 @@ custom_prompt() {
 ### Main
 # default_prompt
 custom_prompt
+
+export EDITOR=vim
