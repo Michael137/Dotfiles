@@ -33,8 +33,28 @@ set -g theme_project_dir_length 1
 set -g theme_newline_cursor yes
 
 set -xg DISPLAY :0
-set -xg PATH /home/gardei/Compilers/gcc/install/bin $PATH
-set -xg PATH /home/gardei/Compilers/clang/install/bin $PATH
 
-set -xg LD_LIBRARY_PATH /home/gardei/Compilers/gcc/install/lib64 $LD_LIBRARY_PATH
-set -xg LD_LIBRARY_PATH /home/gardei/Compilers/clang/install/lib $LD_LIBRARY_PATH
+if test -d $HOME/Compilers
+	set -xg PATH /home/gardei/Compilers/gcc/install/bin $PATH
+	set -xg PATH /home/gardei/Compilers/clang/install/bin $PATH
+	set -xg LD_LIBRARY_PATH /home/gardei/Compilers/gcc/install/lib64 $LD_LIBRARY_PATH
+	set -xg LD_LIBRARY_PATH /home/gardei/Compilers/clang/install/lib $LD_LIBRARY_PATH
+end
+
+function cd_with_dir
+	cd $1; and dir -UA | head -10
+end
+
+alias gdh "cd_with_dir ~"
+alias gdg "cd_with_dir ~/Git"
+alias gdd "cd_with_dir ~/Git/Dotfiles"
+alias la "ls -A"
+alias vimrc "vim ~/.vimrc"
+alias bashrc "vim ~/.bashrc"
+alias zshrc "vim ~/.zshrc"
+alias fishrc "vim ~/.config/fish/config.fish"
+
+# Make Rust usable
+if test -d $HOME/.cargo/env
+	source $HOME/.cargo/env
+end

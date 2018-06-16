@@ -107,6 +107,7 @@ alias la="ls -A"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
 alias zshrc="vim ~/.zshrc"
+alias fishrc="vim ~/.config/fish/config.fish"
 
 # Make Rust usable
 source $HOME/.cargo/env
