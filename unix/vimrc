@@ -1,5 +1,8 @@
 " Vundle
 " When adding new plugins call: "PluginInstall"
+
+" fish shell clashes with vundle
+set shell=/bin/bash
 set nocompatible
 syntax on
 filetype off
