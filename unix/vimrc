@@ -179,8 +179,8 @@ execute "set <M-w>=\ew"
 execute "set <M-q>=\eq"
 execute "set <M-x>=\ex"
 inoremap <M-w> <Esc>:w<CR>
-inoremap <M-q> <Esc>:q!<CR>
+inoremap <M-q> <Esc>:q<CR>
 inoremap <M-x> <Esc>:x<CR>
 noremap <M-w> <Esc>:w<CR>
-noremap <M-q> <Esc>:q!<CR>
+noremap <M-q> <Esc>:q<CR>
 noremap <M-x> <Esc>:x<CR>
