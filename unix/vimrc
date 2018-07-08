@@ -173,3 +173,13 @@ autocmd FileType tex map ;M :!mupdf $(echo % \| sed 's/tex$/pdf/') & disown<CR><
 "" requires gvim installed
 vnoremap <C-c> "*y :let @+=@*<CR>
 inoremap <C-v> <Esc>"+Pi
+
+" Save/Exit
+"" See https://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim
+"" for mapping Alt-key
+execute "set <M-w>=\ew"
+execute "set <M-q>=\eq"
+execute "set <M-x>=\ex"
+map <M-w> <Esc>:w<CR>
+map <M-q> <Esc>:q<CR>
+map <M-x> <Esc>:x<CR>
