@@ -172,7 +172,7 @@ autocmd FileType tex map ;M :!mupdf $(echo % \| sed 's/tex$/pdf/') & disown<CR><
 " Clipboard
 "" requires gvim installed
 vnoremap <C-c> "*y :let @+=@*<CR>
-inoremap <C-v> x<C-c>"_x"+Pi
+inoremap <C-v> x<C-c>"+Plxa
 
 " Save/Exit
 execute "set <M-w>=\ew"
