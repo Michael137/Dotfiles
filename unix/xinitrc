@@ -4,7 +4,7 @@
 # If so, call guest additions
 if grep -q "^flags[[:space]]*:.*hypervisor" /proc/cpuinfo
 then
-	VBoxClient-All
+	VBoxClient-all
 fi
 
 setxkbmap -layout gb
