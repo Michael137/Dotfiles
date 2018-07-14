@@ -2,7 +2,7 @@
 
 # Check if on virtualbox
 # If so, call guest additions
-if grep -q "^flags[[:space]]*:.*hypervisor" /proc/cpuinfo
+if grep -q "^flags[[:space:]]*:.*hypervisor" /proc/cpuinfo;
 then
 	VBoxClient-all
 fi
