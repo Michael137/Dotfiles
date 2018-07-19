@@ -53,6 +53,7 @@ alias vimrc "vim ~/.vimrc"
 alias bashrc "vim ~/.bashrc"
 alias zshrc "vim ~/.zshrc"
 alias fishrc "vim ~/.config/fish/config.fish"
+alias tmuxrc "vim ~/.tmux.conf"
 
 # Make Rust usable
 if test -d $HOME/.cargo/env
