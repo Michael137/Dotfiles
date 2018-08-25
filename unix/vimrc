@@ -184,3 +184,14 @@ inoremap <M-x> <Esc>:x<CR>
 noremap <M-w> <Esc>:w<CR>
 noremap <M-q> <Esc>:q<CR>
 noremap <M-x> <Esc>:x<CR>
+
+" Random shortcuts
+"" Capitalize word
+noremap <S-U> gUiw
+
+" Tmux
+"" Rename pane to filename
+if exists('$TMUX')
+    autocmd BufEnter * call system("tmux rename-window '" . expand("%:p:h:t") . "/" . expand("%:t") . "'")
+    autocmd VimLeave * call system("tmux setw automatic-rename")
+endif
