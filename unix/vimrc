@@ -22,6 +22,9 @@ filetype plugin indent on
 
 " Vim 
 
+" Leader
+let mapleader = "\<Space>"
+
 " Hotkeys
 set pastetoggle=<F2>
 
@@ -52,7 +55,21 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 set cursorline
 
 " Easymotion
-let mapleader = "\<Space>"
+"" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+"" Easymotion search n chars
+nmap <Leader>s <Plug>(easymotion-sn)
+omap <Leader>s <Plug>(easymotion-tn)
+"" hjkl
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+"" Keep cursor column when JK motion
+let g:EasyMotion_startofline = 0
+"" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " vim-clang-format
 let g:clang_format#style_options = {
