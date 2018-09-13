@@ -17,6 +17,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
 Plugin 'shirk/vim-gas'
+Plugin 'jrozner/vim-antlr'
 call vundle#end()
 filetype plugin indent on
 
@@ -216,3 +217,9 @@ endif
 " Search for the tags file upwards from the current
 " folder until file is found. Stop at $HOME
 set tags+=./tags;$HOME
+
+" Move around split panes
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
