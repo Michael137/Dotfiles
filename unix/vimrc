@@ -18,6 +18,7 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'rust-lang/rust.vim'
 Plugin 'shirk/vim-gas'
 Plugin 'jrozner/vim-antlr'
+Plugin 'neovimhaskell/haskell-vim'
 call vundle#end()
 filetype plugin indent on
 
@@ -223,3 +224,6 @@ noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
 noremap <C-h> <C-W>h
 noremap <C-l> <C-W>l
+
+" Haskell related
+autocmd FileType haskell setlocal expandtab
