@@ -207,6 +207,20 @@ noremap <M-x> <Esc>:x<CR>
 " Random shortcuts
 "" Capitalize word
 noremap <S-U> gUiw
+"" Quote/unqoute word (<C-q> is being swallowed by zsh)
+function! QuoteUnquote()
+	"" NOTE: solution won't work for multibyte strings
+	let curWord = expand("<cword>")
+	let chars = split(curWord, '\zs')
+	if chars[0] == '"' && chars[len(chars) - 1] == '"'
+		" Unquote
+		exe "norm! di\"hPl2x"
+	else
+		" Quote
+		exe "norm! ciw\"\<C-r>\"\""
+	endif
+endfunction
+noremap <S-q> <Esc>:call QuoteUnquote()<CR>
 
 " Tmux
 "" Rename pane to filename
