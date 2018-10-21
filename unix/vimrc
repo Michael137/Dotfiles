@@ -241,3 +241,4 @@ noremap <C-l> <C-W>l
 
 " Haskell related
 autocmd FileType haskell setlocal expandtab
+autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
