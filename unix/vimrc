@@ -221,6 +221,8 @@ function! QuoteUnquote()
 	endif
 endfunction
 noremap <S-q> <Esc>:call QuoteUnquote()<CR>
+noremap <S-h> gT
+noremap <S-l> gt
 
 " Tmux
 "" Rename pane to filename
