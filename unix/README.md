@@ -18,8 +18,6 @@ Sets up:
 - Latex
 - Browser
 
-Warns on uninstalled dependencies.
-
 TODO: arch chroot installer
 
 https://askubuntu.com/questions/740183/store-git-credentials-permanently-and-encrypted-using-a-keystore-in-ubuntu
