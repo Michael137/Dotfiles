@@ -111,4 +111,16 @@ alias fishrc="vim ~/.config/fish/config.fish"
 alias tmuxrc="vim ~/.tmux.conf"
 
 # Make Rust usable
-source $HOME/.cargo/env
+# source $HOME/.cargo/env
+
+# OPAM configuration
+. /home/gardei/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Graal/Truffle
+export PATH="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9/bin:$PATH"
+export GRAALVM_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$GRAALVM_HOME"
+export JAVA_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$JAVA_HOME"
+
+# LLVM
+export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm/install/lib:$LD_LIBRARY_PATH"
+export PATH="/home/gardei/Hacking/compilers/llvm/install/bin:$PATH"
