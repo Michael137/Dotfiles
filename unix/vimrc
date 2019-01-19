@@ -76,7 +76,6 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 " vim-clang-format
 let g:clang_format#style_options = {
 \ "Language" : "Cpp",
-\ "AccessModifierOffset" : 4,
 \ "AlignAfterOpenBracket " : "Align",
 \ "AlignConsecutiveAssignments" : "true",
 \ "AlignConsecutiveDeclarations": "false",
