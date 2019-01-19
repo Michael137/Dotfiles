@@ -172,6 +172,7 @@ autocmd FileType cpp,c inoremap ;m int main() {<Enter><++>;<Enter>return 0;<Ente
 autocmd FileType cpp,c inoremap ;t template<><Space><++><Esc>Felli
 autocmd FileType cpp,c inoremap ;p printf(<Space>"",<Space><++><Space>);<Enter><++><Esc>kf"li
 autocmd FileType cpp,c inoremap ;f for(<Space>;<Space><++>;<Space><++><Space>)<Enter>{<++><Enter>}<++><Esc>kkFff;i
+autocmd FileType cpp,c inoremap ;c class <++> {<CR>public:<++><CR>private:<++><CR>};<Esc>3kFs
 
 " Autocomplete
 inoremap ;" "" <++><Esc>F"i
