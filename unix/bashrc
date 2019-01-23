@@ -42,6 +42,19 @@ custom_prompt() {
 	export PS1="(\!)|${pmt_col_bright_yellow}\$(prompt_last_commands)${pmt_col_reset}|${pmt_col_orange}\h${pmt_col_reset}|${pmt_col_magenta}\u${pmt_col_reset}|${pmt_bg_col_dark_gray}${pmt_col_yellow}\w${pmt_col_reset}|\n${pmt_col_blue}\$>>${pmt_col_reset}"
 }
 
+init_dtrace() {
+	local load_script="~/Git/os/freebsd/dtrace/load_dtrace.sh"
+	if [ -f $load_script ]
+	then
+		. $load_script
+		load_dtrace_ker_mods
+	fi
+}
+
+dtrace() {
+	sudo dtrace
+}
+
 ### Main
 default_prompt
 # custom_prompt
@@ -55,3 +68,5 @@ alias tmuxrc='vim ~/.tmux.con'
 alias gdd='cd ~/Git/Dotfiles'
 alias gdos='cd ~/Git/os'
 alias gdg='cd ~/Git'
+
+init_dtrace
