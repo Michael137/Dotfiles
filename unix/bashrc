@@ -43,7 +43,15 @@ custom_prompt() {
 }
 
 ### Main
-# default_prompt
-custom_prompt
+default_prompt
+# custom_prompt
 
 export EDITOR=vim
+export CC=`which gcc`
+
+alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/.bashrc'
+alias tmuxrc='vim ~/.tmux.con'
+alias gdd='cd ~/Git/Dotfiles'
+alias gdos='cd ~/Git/os'
+alias gdg='cd ~/Git'
