@@ -77,7 +77,3 @@ alias gdg='cd ~/Git'
 alias gdw='cd "$BASHRC_WORKING_DIR"'
 
 init_dtrace
-
-# Finally start X server
-read -ep "Do you want to launch an X-server [y/n]" YN
-[[ $YN == "y" || $YN == "Y" ]] && startx
