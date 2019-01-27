@@ -60,3 +60,19 @@ https://askubuntu.com/questions/65764/how-do-i-toggle-sound-with-amixer
 Broswer
 ======
 Firefox: lastpass, vim-vixen
+
+FreeBSD Network Configuration
+=============================
+pkg install wifimgr
+in /etc/wpa_supplicant:
+	network={
+		ssid="<network name>"
+		psk="<network password>"
+	}
+in /etc/rc.conf:
+	wlans_iwn0="wlan0"
+	ifconfig_wlan0="WPA SYNCDHCP"
+
+restart network service: sudo service netif restart
+check network device: sysctl net.wlan.devices
+check network card: pciconf -lv
