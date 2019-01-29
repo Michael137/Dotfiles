@@ -2,7 +2,11 @@
 " When adding new plugins call: "PluginInstall"
 
 " fish shell clashes with vundle
-set shell=/bin/bash
+if executable("/bin/bash")
+	set shell=/bin/bash
+else
+	set shell=/usr/local/bin/bash
+endif
 set nocompatible
 syntax on
 filetype off
@@ -223,6 +227,10 @@ endfunction
 noremap <S-q> <Esc>:call QuoteUnquote()<CR>
 noremap <S-h> gT
 noremap <S-l> gt
+" When opening multiple files e.g. vim *.cpp
+" use :tab all to open them in tabs
+execute "set <M-t>=\et"
+noremap <M-t> <Esc>:tab all<CR>
 
 " Tmux
 "" Rename pane to filename
@@ -244,3 +252,5 @@ noremap <C-l> <C-W>l
 " Haskell related
 autocmd FileType haskell setlocal expandtab
 autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
+
+
