@@ -2,7 +2,11 @@
 " When adding new plugins call: "PluginInstall"
 
 " fish shell clashes with vundle
-set shell=/bin/bash
+if executable("/bin/bash")
+	set shell=/bin/bash
+else
+	set shell=/usr/local/bin/bash
+endif
 set nocompatible
 syntax on
 filetype off
@@ -15,14 +19,18 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rhysd/vim-clang-format'
-Plugin 'rust-lang/rust.vim'
+" Plugin 'rust-lang/rust.vim'
 Plugin 'shirk/vim-gas'
 Plugin 'jrozner/vim-antlr'
-Plugin 'neovimhaskell/haskell-vim'
+" Plugin 'neovimhaskell/haskell-vim'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 filetype plugin indent on
 
 " Vim 
+
+" For YouCompleteMe plugin
+set encoding=utf-8
 
 " Leader
 let mapleader = "\<Space>"
@@ -34,8 +42,8 @@ set pastetoggle=<F2>
 set noet ci pi sw=4 ts=4
 
 " vim-airline
-let g:airline_theme='angr'
-"let g:airline_theme='badwolf'
+" let g:airline_theme='angr'
+let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 set t_Co=256
@@ -224,6 +232,14 @@ endfunction
 noremap <S-q> <Esc>:call QuoteUnquote()<CR>
 noremap <S-h> gT
 noremap <S-l> gt
+" When opening multiple files e.g. vim *.cpp
+" use :tab all to open them in tabs
+execute "set <M-t>=\et"
+noremap <M-t> <Esc>:tab all<CR>
+
+" Comment/Uncomment
+execute "set <M-g>=\eg"
+noremap <M-g> <S-I>//<Esc>
 
 " Tmux
 "" Rename pane to filename
@@ -245,3 +261,5 @@ noremap <C-l> <C-W>l
 " Haskell related
 autocmd FileType haskell setlocal expandtab
 autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
+
+

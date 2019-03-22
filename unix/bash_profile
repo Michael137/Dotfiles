@@ -1,0 +1,9 @@
+# Finally start X server,
+# but only if there is none running already
+if ! xset q &>/dev/null; then
+	read -ep "Do you want to launch an X-server [y/n]" YN
+	[[ $YN == "y" || $YN == "Y" ]] && startx
+fi
+
+source ~/.bashrc
+# source ~/.bash_login
