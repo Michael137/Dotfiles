@@ -59,6 +59,10 @@ dtrace() {
 	sudo dtrace
 }
 
+if [ $(uname) = 'FreeBSD' ]; then
+	alias make='gmake'
+fi
+
 ### Main
 # default_prompt
 # custom_prompt
@@ -67,13 +71,16 @@ no_frills_prompt
 export EDITOR=vim
 export CC=`which gcc`
 export BASHRC_WORKING_DIR="$HOME/Git/slstatus-freebsd"
+export BASHRC_HACKING_DIR="$HOME/Hacking/os/freebsd-current"
 
 alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bashrc'
-alias tmuxrc='vim ~/.tmux.con'
+alias tmuxrc='vim ~/.tmux.conf'
 alias gdd='cd ~/Git/Dotfiles'
 alias gdos='cd ~/Git/os'
 alias gdg='cd ~/Git'
+alias gdh='cd ~/Hacking'
 alias gdw='cd "$BASHRC_WORKING_DIR"'
+alias chd='cd "$BASHRC_HACKING_DIR"'
 
 init_dtrace
