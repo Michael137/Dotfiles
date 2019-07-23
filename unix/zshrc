@@ -106,12 +106,26 @@ alias gdd="cd_with_dir ~/Git/Dotfiles"
 alias gdh="cd_with_dir ~/Hacking"
 alias gdc="cd_with_dir ~/Hacking/Compilers"
 alias gdt="cd_with_dir ~/TLDR"
+alias gdr="cd_with_dir ~/Research"
 alias la="ls -A"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
 alias zshrc="vim ~/.zshrc"
 alias fishrc="vim ~/.config/fish/config.fish"
 alias tmuxrc="vim ~/.tmux.conf"
+alias i3rc="vim ~/.i3/config"
+
+# Helper functions
+# zsh aliases don't take arguments
+function getpdf() {
+	wget robots=off -A pdf "$1"
+}
+
+# NOTE: By default "gd" is an alias for "git diff"
+unalias gd
+function gd() {
+	cd_with_dir $1
+}
 
 # Make Rust usable
 # source $HOME/.cargo/env
