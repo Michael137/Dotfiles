@@ -13,17 +13,33 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
+
+"" Always-on plugins
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'rhysd/vim-clang-format'
-" Plugin 'rust-lang/rust.vim'
 Plugin 'shirk/vim-gas'
-Plugin 'jrozner/vim-antlr'
+" Plugin 'rhysd/vim-clang-format'
+
+"" Misc.
+" Plugin 'rust-lang/rust.vim'
+" Plugin 'jrozner/vim-antlr'
 " Plugin 'neovimhaskell/haskell-vim'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
+
+" \o to start preview
+" \c to compile
+" \p to view pdf
+"Plugin 'ying17zi/vim-live-latex-preview'
+"let $PATH .= ':' . '~/.vim/bundle/vim-live-latex-preview/bin'
+
+" :LLPStartPreview
+" Press "r" in mupdf to refresh pdf
+Plugin 'xuhdev/vim-latex-live-preview'
+let g:livepreview_previewer = 'mupdf'
+
 call vundle#end()
 filetype plugin indent on
 
