@@ -115,6 +115,8 @@ alias zshrc="vim ~/.zshrc"
 alias fishrc="vim ~/.config/fish/config.fish"
 alias tmuxrc="vim ~/.tmux.conf"
 alias i3rc="vim ~/.i3/config"
+alias TODO="cat ~/TODO"
+alias TODORC="vim ~/TODO"
 
 # Helper functions
 # zsh aliases don't take arguments
