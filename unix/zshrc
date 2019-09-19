@@ -108,6 +108,7 @@ alias gdc="cd_with_dir ~/Hacking/Compilers"
 alias gdt="cd_with_dir ~/TLDR"
 alias gdr="cd_with_dir ~/Research"
 alias gdrc="cd_with_dir ~/Research/Current"
+alias gdre="cd_with_dir ~/Research/Experiments"
 alias la="ls -A"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
@@ -122,6 +123,10 @@ alias TODORC="vim ~/TODO"
 # zsh aliases don't take arguments
 function getpdf() {
 	wget robots=off -A pdf "$1"
+}
+
+function gclone() {
+	git clone https://www.github.com/$1
 }
 
 # NOTE: By default "gd" is an alias for "git diff"
