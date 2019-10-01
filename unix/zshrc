@@ -97,7 +97,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 function cd_with_dir {
-	cd $1 && dir -UA | head -10
+	## dir doesn't exist on FreeBSD
+	# cd $1 && dir -UA | head -10
+	cd $1 && ls -UAFG | head -10
 }
 
 alias gdh="cd_with_dir ~"
