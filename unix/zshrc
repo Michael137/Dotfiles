@@ -111,6 +111,9 @@ alias gdt="cd_with_dir ~/TLDR"
 alias gdr="cd_with_dir ~/Research"
 alias gdrc="cd_with_dir ~/Research/Current"
 alias gdre="cd_with_dir ~/Research/Experiments"
+alias gdalp="cd_with_dir ~/Git/ALP"
+alias gdos="cd_with_dir ~/Git/os/osdev"
+alias gdnfv="cd_with_dir ~/Git/nfv-benchmark"
 alias la="ls -A"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
@@ -151,3 +154,19 @@ export JAVA_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$JAVA_HOME"
 # LLVM
 export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm/install/lib:$LD_LIBRARY_PATH"
 export PATH="/home/gardei/Hacking/compilers/llvm/install/bin:$PATH"
+
+# Dtrace
+init_dtrace() {
+	local load_script="~/Git/os/freebsd/dtrace/load_dtrace.sh"
+	if [ -f $load_script ]
+	then
+		. $load_script
+		load_dtrace_ker_mods
+	fi
+}
+
+dtrace() {
+	sudo dtrace $@
+}
+
+init_dtrace
