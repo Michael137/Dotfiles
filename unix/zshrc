@@ -109,6 +109,8 @@ alias gdt="cd_with_dir ~/TLDR"
 alias gdr="cd_with_dir ~/Research"
 alias gdrc="cd_with_dir ~/Research/Current"
 alias gdre="cd_with_dir ~/Research/Experiments"
+alias gdalp="cd_with_dir ~/Git/ALP"
+alias gdos="cd_with_dir ~/Git/os"
 alias la="ls -A"
 alias vimrc="vim ~/.vimrc"
 alias bashrc="vim ~/.bashrc"
@@ -118,6 +120,7 @@ alias tmuxrc="vim ~/.tmux.conf"
 alias i3rc="vim ~/.i3/config"
 alias TODO="cat ~/TODO"
 alias TODORC="vim ~/TODO"
+alias vnc="~/VNC-Viewer-6.19.715-Linux-x64"
 
 # Helper functions
 # zsh aliases don't take arguments
@@ -135,6 +138,10 @@ function gd() {
 	cd_with_dir $1
 }
 
+# Set up path
+export PATH="/home/gardei/.local/bin:$PATH"
+export PATH="/home/gardei/bin:$PATH"
+
 # Make Rust usable
 # source $HOME/.cargo/env
 
@@ -147,5 +154,46 @@ export GRAALVM_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$GRAALVM_HO
 export JAVA_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$JAVA_HOME"
 
 # LLVM
-export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm/install/lib:$LD_LIBRARY_PATH"
-export PATH="/home/gardei/Hacking/compilers/llvm/install/bin:$PATH"
+# export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm/build/lib:$LD_LIBRARY_PATH"
+# export PATH="/home/gardei/Hacking/compilers/llvm/build/bin:$PATH"
+
+#export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/build/lib:$LD_LIBRARY_PATH"
+#export PATH="/home/gardei/Hacking/compilers/build/bin:$PATH"
+
+#export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/install/usr/local/lib:$LD_LIBRARY_PATH"
+#export PATH="/home/gardei/Hacking/compilers/install/usr/local/bin:$PATH"
+
+export PATH="/home/gardei/Qualcomm/HEXAGON_Tools/7.2.12/Tools/bin:$PATH"
+export LD_LIBRARY_PATH="/home/gardei/Qualcomm/HEXAGON_Tools/7.2.12/Tools/lib:$LD_LIBRARY_PATH"
+
+export LD_LIBRARY_PATH="/home/gardei/Hacking/llvm-10/install/lib:$LD_LIBRARY_PATH"
+export PATH="/home/gardei/Hacking/llvm-10/install/bin:$PATH"
+
+export PATH="/home/gardei/pin:$PATH"
+export LD_LIBRARY_PATH="/home/gardei/pin/intel64/lib:$LD_LIBRARY_PATH"
+
+export LD_LIBRARY_PATH="/home/gardei/papi:$LD_LIBRARY_PATH"
+
+export PATH="/opt/cisco/anyconnect/bin":$PATH
+
+# Android
+alias android="~/android-studio/bin/studio.sh"
+
+# Anaconda
+# export PATH="/home/gardei/anaconda3/bin:$PATH"  # commented out by conda initialize
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/gardei/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/gardei/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/gardei/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/gardei/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+

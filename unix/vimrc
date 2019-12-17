@@ -21,7 +21,11 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'shirk/vim-gas'
+" Plugin 'the-lambda-church/coquille'
 " Plugin 'rhysd/vim-clang-format'
+
+" Pathogen installations
+execute pathogen#infect()
 
 "" Misc.
 " Plugin 'rust-lang/rust.vim'
@@ -191,7 +195,7 @@ inoremap ;gui <++>
 
 " C and C++
 autocmd FileType cpp,c inoremap ;i #include<Space><><Enter><++><Esc>k$F<li
-autocmd FileType cpp,c inoremap ;m int main() {<Enter><++>;<Enter>return 0;<Enter>}<Esc>G?main<CR>
+autocmd FileType cpp,c inoremap ;m int main(int argc, char** argv) {<Enter><++>;<Enter>return 0;<Enter>}<Esc>G?main<CR>
 autocmd FileType cpp,c inoremap ;t template<><Space><++><Esc>Felli
 autocmd FileType cpp,c inoremap ;p printf(<Space>"",<Space><++><Space>);<Enter><++><Esc>kf"li
 autocmd FileType cpp,c inoremap ;f for(<Space>;<Space><++>;<Space><++><Space>)<Enter>{<++><Enter>}<++><Esc>kkFff;i
