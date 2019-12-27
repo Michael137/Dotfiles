@@ -102,6 +102,14 @@ function cd_with_dir {
 	cd $1 && ls -UAFG | head -10
 }
 
+function tma {
+	tmux attach -t $1
+}
+
+function tmd {
+	tmux detach
+}
+
 alias gdh="cd_with_dir ~"
 alias gdg="cd_with_dir ~/Git"
 alias gdd="cd_with_dir ~/Git/Dotfiles/unix"
