@@ -21,27 +21,19 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'shirk/vim-gas'
-" Plugin 'rhysd/vim-clang-format'
+Plugin 'rhysd/vim-clang-format'
 
 "" Misc.
 " Plugin 'rust-lang/rust.vim'
 " Plugin 'jrozner/vim-antlr'
 " Plugin 'neovimhaskell/haskell-vim'
-" Plugin 'Valloric/YouCompleteMe'
-
-" \o to start preview
-" \c to compile
-" \p to view pdf
-"Plugin 'ying17zi/vim-live-latex-preview'
-"let $PATH .= ':' . '~/.vim/bundle/vim-live-latex-preview/bin'
-
-" :LLPStartPreview
-" Press "r" in mupdf to refresh pdf
-Plugin 'xuhdev/vim-latex-live-preview'
-let g:livepreview_previewer = 'mupdf'
+Plugin 'whonore/coqtail'
 
 call vundle#end()
 filetype plugin indent on
+
+" Pathogen
+execute pathogen#infect()
 
 " Vim 
 
@@ -278,4 +270,23 @@ noremap <C-l> <C-W>l
 autocmd FileType haskell setlocal expandtab
 autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
 
-
+" Coqtail remapping
+autocmd FileType coq nmap <C-s> <leader>cc
+autocmd FileType coq nmap <C-e> <leader>cq
+autocmd FileType coq nmap <C-j> <leader>cj
+autocmd FileType coq nmap <C-k> <leader>ck
+autocmd FileType coq nmap <C-l> <leader>cl
+"" TODO: would be better bound to ctrl+home/ctrl+end
+autocmd FileType coq nmap <C-T> <leader>cT
+autocmd FileType coq nmap <C-G> <leader>cG
+"" Coq query commands
+""" Show type of term under cursor
+autocmd FileType coq nmap <C-h> <leader>ch 
+""" Show info of term under cursor
+autocmd FileType coq nmap <C-a> <leader>ca
+""" Show definition of term under cursor
+autocmd FileType coq nmap <C-p> <leader>cp
+""" Show location of definition of term under cursor
+autocmd FileType coq nmap <C-f> <leader>cf
+""" Search term under cursor
+autocmd FileType coq nmap <C-s> <leader>cs
