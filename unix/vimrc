@@ -245,6 +245,8 @@ noremap <S-l> gt
 execute "set <M-t>=\et"
 noremap <M-t> <Esc>:tab all<CR>
 
+inoremap jk <Esc>
+
 " Comment/Uncomment
 execute "set <M-g>=\eg"
 noremap <M-g> <S-I>//<Esc>
@@ -290,3 +292,6 @@ autocmd FileType coq nmap <C-p> <leader>cp
 autocmd FileType coq nmap <C-f> <leader>cf
 """ Search term under cursor
 autocmd FileType coq nmap <C-s> <leader>cs
+
+autocmd FileType coq nmap <C-c> i(*  *)<Esc>2<Left>i
+autocmd FileType coq inoremap jk <Esc>:CoqToLine<CR>i<Esc>A
