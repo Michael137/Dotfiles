@@ -148,36 +148,23 @@ function gd() {
 	cd_with_dir $1
 }
 
-# Make Rust usable
-# source $HOME/.cargo/env
-
-# OPAM configuration
-. /home/gardei/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# Graal/Truffle
-export PATH="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9/bin:$PATH"
-export GRAALVM_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$GRAALVM_HOME"
-export JAVA_HOME="/home/gardei/Hacking/graal/graalvm-ce-1.0.0-rc9:$JAVA_HOME"
-
 # LLVM
-export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm-9.0.0-install/lib:$LD_LIBRARY_PATH"
-export PATH="/home/gardei/Hacking/compilers/llvm-9.0.0-install/bin:$PATH"
+export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm-9.0.1-install/lib:$LD_LIBRARY_PATH"
+export PATH="/home/gardei/Hacking/compilers/llvm-9.0.1-install/bin:$PATH"
 
 # gcc
-export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/gcc-9.2.0-install/lib:$LD_LIBRARY_PATH"
-export PATH="/home/gardei/Hacking/compilers/gcc-9.2.0-install/bin:$PATH"
+#export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/gcc-9.2.0-install/lib:$LD_LIBRARY_PATH"
+#export PATH="/home/gardei/Hacking/compilers/gcc-9.2.0-install/bin:$PATH"
 
 # Android
+export ANDROID_NDK_ROOT="/home/gardei/Qualcomm/Hexagon_SDK/3.5.1/tools/android-ndk-r19c"
 export PATH="/home/gardei/Android/android-studio/bin:$PATH"
 alias astudio="studio.sh"
 
-# Android
+# Hexagon
 export PATH="/home/gardei/bin:$PATH"
 #export HEXAGON_SDK_ROOT="/home/gardei/Qualcomm/Hexagon_SDK/3.5.1"
 alias hexstudio="/home/gardei/Qualcomm/Hexagon_SDK/3.5.1/Launch\ Hexagon\ IDE"
-
-# Tex Live
-export PATH="/usr/local/texlive/2019/bin/x86_64-linux:$PATH"
 
 init_hex_llvm() {
 	# Qualcomm
@@ -187,8 +174,8 @@ init_hex_llvm() {
 
 init_android_llvm() {
 	# Android llvm (Qualcomm provided)
-	export LD_LIBRARY_PATH="/home/gardei/Hacking/compilers/llvm-8.0.6-snapdragon-install/toolchains/llvm-Snapdragon_LLVM_for_Android_8.0/prebuilt/linux-x86_64/lib:$LD_LIBRARY_PATH"
-	export PATH="/home/gardei/Hacking/compilers/llvm-8.0.6-snapdragon-install/toolchains/llvm-Snapdragon_LLVM_for_Android_8.0/prebuilt/linux-x86_64/bin:$PATH"
+	export LD_LIBRARY_PATH="/home/gardei/Qualcomm/Hexagon_SDK/3.5.1/tools/android-ndk-r19c/toolchains/llvm-Snapdragon_LLVM_for_Android_8.0/prebuilt/linux-x86_64/lib:$LD_LIBRARY_PATH"
+	export PATH="/home/gardei/Qualcomm/Hexagon_SDK/3.5.1/tools/android-ndk-r19c/toolchains/llvm-Snapdragon_LLVM_for_Android_8.0/prebuilt/linux-x86_64/bin:$PATH"
 }
 
 # Dtrace
@@ -214,3 +201,37 @@ export LANG=en_IN.UTF-8
 # Prevent terminal from locking when pressing: C-s
 # (unlock is via: C-q)
 stty -ixon
+
+init_anaconda() {
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$('/home/gardei/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+    	eval "$__conda_setup"
+	else
+    	if [ -f "/home/gardei/anaconda3/etc/profile.d/conda.sh" ]; then
+        	. "/home/gardei/anaconda3/etc/profile.d/conda.sh"
+    	else
+        	export PATH="/home/gardei/anaconda3/bin:$PATH"
+    	fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
+}
+
+# OPAM configuration
+. /home/gardei/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Caffe
+export PYTHONPATH=/home/gardei/Qualcomm/snpe-1.35.0.698/lib/python:$PYTHONPATH
+export PYTHONPATH=/home/gardei/caffe/build/install/python:$PYTHONPATH
+export LD_LIBRARY_PATH=/home/gardei/caffe/build/install/lib:$LD_LIBRARY_PATH
+export PATH=/home/gardei/caffe/build/install/bin:$PATH
+export SNPE_ROOT=/home/gardei/Qualcomm/snpe-1.35.0.698
+
+cd /home/gardei/Qualcomm/snpe-1.35.0.698/bin; source envsetup.sh -c ~/caffe; cd ~
+
+adjust_brightness() {
+	$HOME/.brightness_adjust.sh $1
+}
+alias ab=adjust_brightness
