@@ -112,7 +112,7 @@ function tmd {
 
 alias gdh="cd_with_dir ~"
 alias gdg="cd_with_dir ~/Git"
-alias gdd="cd_with_dir ~/Git/Dotfiles/unix"
+alias gdd="cd_with_dir ~/Git/Dotfiles/darwin"
 alias gdh="cd_with_dir ~/Hacking"
 alias gdc="cd_with_dir ~/Hacking/Compilers"
 alias gdt="cd_with_dir ~/TLDR"

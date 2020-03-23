@@ -242,8 +242,7 @@ noremap <S-h> gT
 noremap <S-l> gt
 " When opening multiple files e.g. vim *.cpp
 " use :tab all to open them in tabs
-execute "set <M-t>=\et"
-noremap <M-t> <Esc>:tab all<CR>
+noremap <C-T> <Esc>:tab all<CR>
 
 inoremap jk <Esc>
 
