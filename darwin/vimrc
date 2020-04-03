@@ -1,0 +1,296 @@
+" Vundle
+" When adding new plugins call: "PluginInstall"
+
+" fish shell clashes with vundle
+if executable("/bin/bash")
+	set shell=/bin/bash
+else
+	set shell=/usr/local/bin/bash
+endif
+set nocompatible
+syntax on
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+"" Always-on plugins
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'shirk/vim-gas'
+Plugin 'rhysd/vim-clang-format'
+
+"" Misc.
+" Plugin 'rust-lang/rust.vim'
+" Plugin 'jrozner/vim-antlr'
+" Plugin 'neovimhaskell/haskell-vim'
+Plugin 'whonore/coqtail'
+
+call vundle#end()
+filetype plugin indent on
+
+" Pathogen
+execute pathogen#infect()
+
+" Vim 
+
+" For YouCompleteMe plugin
+set encoding=utf-8
+
+" Leader
+let mapleader = "\<Space>"
+
+" Hotkeys
+set pastetoggle=<F2>
+
+" Tabs
+set noet ci pi sw=4 ts=4
+
+" vim-airline
+" let g:airline_theme='angr'
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+set laststatus=2
+set t_Co=256
+
+" Colors
+" colorscheme elflord
+colorscheme badwolf
+
+" Mouse settings
+set mouse=a
+
+" Whitespace
+set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+hi SpecialKey ctermfg=247 ctermbg=234
+
+" Highlighting
+set number
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+set cursorline
+
+" Easymotion
+"" Disable default mappings
+let g:EasyMotion_do_mapping = 0
+"" Easymotion search n chars
+nmap <Leader>s <Plug>(easymotion-sn)
+omap <Leader>s <Plug>(easymotion-tn)
+"" hjkl
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+"" Keep cursor column when JK motion
+let g:EasyMotion_startofline = 0
+"" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
+
+" vim-clang-format
+let g:clang_format#style_options = {
+\ "Language" : "Cpp",
+\ "AlignAfterOpenBracket " : "Align",
+\ "AlignConsecutiveAssignments" : "true",
+\ "AlignConsecutiveDeclarations": "false",
+\ "AlignEscapedNewlines" : "Right",
+\ "AlignOperands" : "true",
+\ "AlignTrailingComments" : "true",
+\ "AllowAllParametersOfDeclarationOnNextLine" : "false",
+\ "AllowShortBlocksOnASingleLine" : "true",
+\ "AllowShortCaseLabelsOnASingleLine" : "true",
+\ "AllowShortFunctionsOnASingleLine" : "All",
+\ "AllowShortIfStatementsOnASingleLine" : "false",
+\ "AllowShortLoopsOnASingleLine" : "false",
+\ "AlwaysBreakAfterDefinitionReturnType" : "None",
+\ "AlwaysBreakAfterReturnType" : "None",
+\ "AlwaysBreakBeforeMultilineStrings" : "false",
+\ "AlwaysBreakTemplateDeclarations" : "false",
+\ "BinPackArguments" : "true",
+\ "BinPackParameters" : "true",
+\ "BreakBeforeBinaryOperators" : "All",
+\ "BreakBeforeBraces" : "Allman",
+\ "BreakBeforeInheritanceComma" : "false",
+\ "BreakBeforeTernaryOperators" : "true",
+\ "BreakConstructorInitializersBeforeComma" : "false",
+\ "BreakConstructorInitializers" : "BeforeComma",
+\ "BreakStringLiterals" : "true",
+\ "ColumnLimit": 80,
+\ "CompactNamespaces" : "false",
+\ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
+\ "ConstructorInitializerIndentWidth": 4,
+\ "ContinuationIndentWidth": 4,
+\ "Cpp11BracedListStyle" : "true",
+\ "DerivePointerAlignment" : "false",
+\ "DisableFormat" : "false",
+\ "ExperimentalAutoDetectBinPacking" : "false",
+\ "FixNamespaceComments" : "true",
+\ "IncludeBlocks" : "Preserve",
+\ "IndentCaseLabels" : "true",
+\ "IndentPPDirectives" : "AfterHash",
+\ "IndentWidth": 4,
+\ "IndentWrappedFunctionNames" : "false",
+\ "KeepEmptyLinesAtTheStartOfBlocks" : "false",
+\ "MaxEmptyLinesToKeep": 1,
+\ "NamespaceIndentation" : "None",
+\ "PenaltyBreakAssignment": 2,
+\ "PenaltyBreakBeforeFirstCallParameter": 19,
+\ "PenaltyBreakComment": 300,
+\ "PenaltyBreakFirstLessLess": 120,
+\ "PenaltyBreakString": 1000,
+\ "PenaltyExcessCharacter": 1000000,
+\ "PenaltyReturnTypeOnItsOwnLine": 60,
+\ "PointerAlignment" : "Left",
+\ "ReflowComments" : "true",
+\ "SortIncludes" : "true",
+\ "SortUsingDeclarations" : "true",
+\ "SpaceAfterCStyleCast" : "false",
+\ "SpaceAfterTemplateKeyword" : "false",
+\ "SpaceBeforeAssignmentOperators" : "true",
+\ "SpaceBeforeCtorInitializerColon" : "true",
+\ "SpaceBeforeInheritanceColon" : "true",
+\ "SpaceBeforeParens" : "Never",
+\ "SpaceBeforeRangeBasedForLoopColon" : "false",
+\ "SpaceInEmptyParentheses" : "false",
+\ "SpacesBeforeTrailingComments": 1,
+\ "SpacesInAngles" : "false",
+\ "SpacesInContainerLiterals" : "true",
+\ "SpacesInCStyleCastParentheses" : "false",
+\ "SpacesInParentheses" : "true",
+\ "SpacesInSquareBrackets" : "false",
+\ "Standard" : "Cpp11",
+\ "TabWidth": 4,
+\ "UseTab" : "ForIndentation" }
+
+" Hybrid line numbers
+set nu relativenumber
+
+"" Tool shortcuts
+" Spell checker
+map <F6> :setlocal spell spelllang=en_us<CR>
+" Formatters
+autocmd FileType cpp,c map <C-f> :ClangFormat<CR>
+autocmd FileType rust map <C-f> :RustFmt<CR>
+
+"" Guides
+" Navigation
+inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+vnoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+map <Space><Tab> <Esc>/<++><Enter>"_c4l
+inoremap ;gui <++>
+
+" C and C++
+autocmd FileType cpp,c inoremap ;i #include<Space><><Enter><++><Esc>k$F<li
+autocmd FileType cpp,c inoremap ;m int main() {<Enter><++>;<Enter>return 0;<Enter>}<Esc>G?main<CR>
+autocmd FileType cpp,c inoremap ;t template<><Space><++><Esc>Felli
+autocmd FileType cpp,c inoremap ;p printf(<Space>"",<Space><++><Space>);<Enter><++><Esc>kf"li
+autocmd FileType cpp,c inoremap ;f for(<Space>;<Space><++>;<Space><++><Space>)<Enter>{<++><Enter>}<++><Esc>kkFff;i
+autocmd FileType cpp,c inoremap ;c class <++> {<CR>public:<++><CR>private:<++><CR>};<Esc>3kFs
+autocmd FileType cpp,c inoremap ;g #ifndef <++>_H_IN<CR>#define <++>_H_IN<CR><CR><++><CR><CR>#endif // <++>_H_IN<Esc>gg0
+
+" Autocomplete
+inoremap ;" "" <++><Esc>F"i
+inoremap ;' '' <++><Esc>F'i
+inoremap ;( () <++><Esc>F)i
+inoremap ;[ [] <++><Esc>F]i
+inoremap ;{ {} <++><Esc>F}i
+inoremap ;< <> <++><Esc>F>i
+inoremap ;{<Enter> {<Enter><Enter>}<Esc><UP>i<Tab>
+inoremap ;/*<CR> /*<CR><Esc>0R** <CR>*/<Enter><++><Esc><UP><UP>A
+
+"" Latex previewer
+" for Vim plugin
+autocmd FileType tex map ;C :!lualatex %<CR><CR>
+autocmd FileType tex map ;M :!mupdf $(echo % \| sed 's/tex$/pdf/') & disown<CR><CR>
+
+" Clipboard
+"" requires gvim installed
+vnoremap <C-c> "*y :let @+=@*<CR>
+inoremap <C-v> x<C-c>"+Plxa
+
+" Save/Exit
+execute "set <M-w>=\ew"
+execute "set <M-q>=\eq"
+execute "set <M-x>=\ex"
+inoremap <leader>w <Esc>:w<CR>
+inoremap <leader>q <Esc>:q<CR>
+inoremap <leader>x <Esc>:x<CR>
+noremap <leader>w <Esc>:w<CR>
+noremap <leader>q <Esc>:q<CR>
+noremap <leader>x <Esc>:x<CR>
+
+" Random shortcuts
+"" Capitalize word
+noremap <S-U> gUiw
+"" Quote/unqoute word (<C-q> is being swallowed by zsh)
+function! QuoteUnquote()
+	"" NOTE: solution won't work for multibyte strings
+	let curWord = expand("<cword>")
+	let chars = split(curWord, '\zs')
+	if chars[0] == '"' && chars[len(chars) - 1] == '"'
+		" Unquote
+		exe "norm! di\"hPl2x"
+	else
+		" Quote
+		exe "norm! ciw\"\<C-r>\"\""
+	endif
+endfunction
+noremap <S-q> <Esc>:call QuoteUnquote()<CR>
+noremap <S-h> gT
+noremap <S-l> gt
+" When opening multiple files e.g. vim *.cpp
+" use :tab all to open them in tabs
+noremap <C-T> <Esc>:tab all<CR>
+
+inoremap jk <Esc>
+
+" Comment/Uncomment
+execute "set <M-g>=\eg"
+noremap <M-g> <S-I>//<Esc>
+
+" Tmux
+"" Rename pane to filename
+if exists('$TMUX')
+    autocmd BufEnter * call system("tmux rename-window '" . expand("%:t") . "'")
+    autocmd VimLeave * call system("tmux setw automatic-rename")
+endif
+
+" Search for the tags file upwards from the current
+" folder until file is found. Stop at $HOME
+set tags+=./tags;$HOME
+
+" Move around split panes
+noremap <C-j> <C-W>j
+noremap <C-k> <C-W>k
+noremap <C-h> <C-W>h
+noremap <C-l> <C-W>l
+
+" Haskell related
+autocmd FileType haskell setlocal expandtab
+autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
+
+" Coqtail remapping
+autocmd FileType coq nmap <C-s> <leader>cc
+autocmd FileType coq nmap <C-e> <leader>cq
+autocmd FileType coq nmap <C-j> <leader>cj
+autocmd FileType coq nmap <C-k> <leader>ck
+autocmd FileType coq nmap <C-l> <leader>cl
+"" TODO: would be better bound to ctrl+home/ctrl+end
+autocmd FileType coq nmap <C-T> <leader>cT
+autocmd FileType coq nmap <C-G> <leader>cG
+"" Coq query commands
+""" Show type of term under cursor
+autocmd FileType coq nmap <C-h> <leader>ch 
+""" Show info of term under cursor
+autocmd FileType coq nmap <C-a> <leader>ca
+""" Show definition of term under cursor
+autocmd FileType coq nmap <C-p> <leader>cp
+""" Show location of definition of term under cursor
+autocmd FileType coq nmap <C-f> <leader>cf
+""" Search term under cursor
+autocmd FileType coq nmap <C-s> <leader>cs
+
+autocmd FileType coq nmap <C-c> i(*  *)<Esc>2<Left>i
+autocmd FileType coq inoremap jk <Esc>:CoqToLine<CR>i<Esc>A
