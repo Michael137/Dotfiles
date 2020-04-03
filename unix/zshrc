@@ -224,15 +224,11 @@ init_anaconda() {
 # OPAM configuration
 . /home/gardei/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-# Caffe
-export PYTHONPATH=/home/gardei/Qualcomm/snpe-1.35.0.698/lib/python:$PYTHONPATH
-export PYTHONPATH=/home/gardei/caffe/build/install/python:$PYTHONPATH
-export LD_LIBRARY_PATH=/home/gardei/caffe/build/install/lib:$LD_LIBRARY_PATH
-export PATH=/home/gardei/caffe/build/install/bin:$PATH
-export SNPE_ROOT=/home/gardei/Qualcomm/snpe-1.35.0.698
-
 # cd /home/gardei/Qualcomm/snpe-1.35.0.698/bin; source envsetup.sh -c ~/caffe > /dev/null; cd ~
 snpe_init() {
+	# Caffe
+	export PYTHONPATH=/home/gardei/Qualcomm/snpe-1.35.0.698/lib/python:$PYTHONPATH
+	export SNPE_ROOT=/home/gardei/Qualcomm/snpe-1.35.0.698
 	export TENSORFLOW_DIR=`python -m pip show tensorflow | grep "Location" | awk '{print $2}'`/tensorflow
 	cd /home/gardei/Qualcomm/snpe-1.35.0.698/bin; source envsetup.sh -t $TENSORFLOW_DIR > /dev/null; cd ~
 	source $SNPE_ROOT/snpe-venv/bin/activate
