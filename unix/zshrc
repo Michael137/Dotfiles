@@ -160,6 +160,8 @@ export PATH="/home/gardei/Hacking/compilers/llvm-9.0.1-install/bin:$PATH"
 export ANDROID_NDK_ROOT="/home/gardei/Qualcomm/Hexagon_SDK/3.5.1/tools/android-ndk-r19c"
 export PATH="/home/gardei/Android/android-studio/bin:$PATH"
 alias astudio="studio.sh"
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/20.1.5948944
 
 # Hexagon
 export PATH="/home/gardei/bin:$PATH"
@@ -229,9 +231,18 @@ export LD_LIBRARY_PATH=/home/gardei/caffe/build/install/lib:$LD_LIBRARY_PATH
 export PATH=/home/gardei/caffe/build/install/bin:$PATH
 export SNPE_ROOT=/home/gardei/Qualcomm/snpe-1.35.0.698
 
-cd /home/gardei/Qualcomm/snpe-1.35.0.698/bin; source envsetup.sh -c ~/caffe; cd ~
+# cd /home/gardei/Qualcomm/snpe-1.35.0.698/bin; source envsetup.sh -c ~/caffe > /dev/null; cd ~
+snpe_init() {
+	export TENSORFLOW_DIR=`python -m pip show tensorflow | grep "Location" | awk '{print $2}'`/tensorflow
+	cd /home/gardei/Qualcomm/snpe-1.35.0.698/bin; source envsetup.sh -t $TENSORFLOW_DIR > /dev/null; cd ~
+	source $SNPE_ROOT/snpe-venv/bin/activate
+	cd $SNPE_ROOT
+}
 
 adjust_brightness() {
 	$HOME/.brightness_adjust.sh $1
 }
 alias ab=adjust_brightness
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
