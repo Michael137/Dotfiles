@@ -300,5 +300,5 @@ autocmd FileType coq nmap <C-c> i(*  *)<Esc>2<Left>i
 autocmd FileType coq inoremap jk <Esc>:CoqToLine<CR>i<Esc>A
 
 " Move around split panes in Coq
-autocmd FileType coq noremap <C-y> <C-W>h
-autocmd FileType coq noremap <C-p> <C-W>l
+autocmd FileType coq noremap <C-[> <C-W>h
+autocmd FileType coq noremap <C-]> <C-W>l
