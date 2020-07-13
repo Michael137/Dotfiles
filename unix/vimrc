@@ -63,8 +63,11 @@ colorscheme badwolf
 " Mouse settings
 set mouse=a
 
+"let g:iscoq= "coq" ==? &ft
 " Whitespace
-set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+"if g:iscoq == 0
+"	set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+"endif
 hi SpecialKey ctermfg=247 ctermbg=234
 
 " Highlighting
@@ -295,3 +298,7 @@ autocmd FileType coq nmap <C-s> <leader>cs
 
 autocmd FileType coq nmap <C-c> i(*  *)<Esc>2<Left>i
 autocmd FileType coq inoremap jk <Esc>:CoqToLine<CR>i<Esc>A
+
+" Move around split panes in Coq
+autocmd FileType coq noremap <C-[> <C-W>h
+autocmd FileType coq noremap <C-]> <C-W>l
