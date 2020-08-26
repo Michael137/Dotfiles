@@ -28,6 +28,7 @@ Plugin 'rhysd/vim-clang-format'
 " Plugin 'jrozner/vim-antlr'
 " Plugin 'neovimhaskell/haskell-vim'
 Plugin 'whonore/coqtail'
+Plugin 'dense-analysis/ale'
 
 call vundle#end()
 filetype plugin indent on
@@ -56,6 +57,39 @@ let g:airline_powerline_fonts = 1
 set laststatus=2
 set t_Co=256
 
+" Case-insensitive search unless capital letters
+" appear in searched term. Case-sensitive
+" search can be used explicitly like so: \C<search term>
+set ignorecase
+set smartcase
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
 " Colors
 " colorscheme elflord
 colorscheme badwolf
@@ -64,7 +98,7 @@ colorscheme badwolf
 set mouse=a
 
 " Whitespace
-set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+"set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
 hi SpecialKey ctermfg=247 ctermbg=234
 
 " Highlighting
@@ -214,12 +248,12 @@ inoremap <C-v> x<C-c>"+Plxa
 execute "set <M-w>=\ew"
 execute "set <M-q>=\eq"
 execute "set <M-x>=\ex"
-inoremap <leader>w <Esc>:w<CR>
-inoremap <leader>q <Esc>:q<CR>
-inoremap <leader>x <Esc>:x<CR>
-noremap <leader>w <Esc>:w<CR>
-noremap <leader>q <Esc>:q<CR>
-noremap <leader>x <Esc>:x<CR>
+inoremap <C-w> <Esc>:w<CR>
+inoremap <C-q> <Esc>:q<CR>
+inoremap <C-x> <Esc>:x<CR>
+noremap <C-w> <Esc>:w<CR>
+noremap <C-q> <Esc>:q<CR>
+noremap <C-x> <Esc>:x<CR>
 
 " Random shortcuts
 "" Capitalize word
@@ -242,6 +276,7 @@ noremap <S-h> gT
 noremap <S-l> gt
 " When opening multiple files e.g. vim *.cpp
 " use :tab all to open them in tabs
+execute "set <M-t>=\et"
 noremap <C-T> <Esc>:tab all<CR>
 
 inoremap jk <Esc>
@@ -273,7 +308,7 @@ autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
 
 " Coqtail remapping
 autocmd FileType coq nmap <C-s> <leader>cc
-autocmd FileType coq nmap <C-e> <leader>cq
+autocmd FileType coq nmap <C-e> i<++><Esc><leader>cq
 autocmd FileType coq nmap <C-j> <leader>cj
 autocmd FileType coq nmap <C-k> <leader>ck
 autocmd FileType coq nmap <C-l> <leader>cl
