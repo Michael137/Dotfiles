@@ -60,6 +60,12 @@ set t_Co=256
 " colorscheme elflord
 colorscheme badwolf
 
+" Case-insensitive search unless capital letters
+" appear in searched term. Case-sensitive
+" search can be used explicitly like so: \C<search term>
+set ignorecase
+set smartcase
+
 " Mouse settings
 set mouse=a
 
