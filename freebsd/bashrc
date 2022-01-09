@@ -108,10 +108,6 @@ dtrace() {
 	sudo dtrace
 }
 
-gittok() {
-	cat /media/hdd1/.gtok | xclip -sel clip
-}
-
 if [ $(uname) = 'FreeBSD' ]; then
 	alias make='gmake'
 fi
@@ -138,10 +134,11 @@ alias tma='tmux attach'
 alias tmd='tmux detach'
 alias tmux="tmux -2" # to make some vim colorschemes work (e.g., badwolf)
 
-export PATH=/home/mib/opt/bin:/home/mib/.local/bin:$PATH
-export LD_LIBRARY_PATH=/home/mib/opt/lib64:/home/mib/opt/lib:$LD_LIBRARY_PATH
+export PATH=/home/gardei/opt/bin:/home/gardei/.local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=/home/gardei/opt/lib64:/home/gardei/opt/lib:$LD_LIBRARY_PATH
 
 # For FindBoost.cmake
-export BOOST_ROOT=/home/mib/opt
+export BOOST_ROOT=/home/gardei/opt
 
 init_dtrace
