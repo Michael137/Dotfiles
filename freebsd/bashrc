@@ -133,6 +133,7 @@ alias chd='cd "$BASHRC_HACKING_DIR"'
 alias tma='tmux attach'
 alias tmd='tmux detach'
 alias tmux="tmux -2" # to make some vim colorschemes work (e.g., badwolf)
+alias nproc='sysctl -n hw.ncpu'
 
 export PATH=/home/gardei/opt/bin:/home/gardei/.local/bin:$PATH
 export PATH=/usr/local/bin:$PATH
