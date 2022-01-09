@@ -1,0 +1,12 @@
+# Finally start X server,
+# but only if there is none running already
+if ! xset q &>/dev/null; then
+	read -p "Do you want to launch an X-server [y/n]" choice
+	case "$choice" in
+		y|Y ) printf "Answer: Yes\nStarting x-server..."; startx;;
+		n|N ) printf "Answer: No\nNot starting x-server";;
+		* ) printf "Invalid answer\nNot starting x-server";;
+	esac
+fi
+
+source ~/.bashrc
