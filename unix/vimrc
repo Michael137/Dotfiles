@@ -37,7 +37,7 @@ set pastetoggle=<F2>
 "set backspace=2
 
 " Tabs
-set noet ci pi sw=4 ts=4
+set et ci pi sw=4 ts=4
 
 " vim-airline
 let g:airline_theme='badwolf'
