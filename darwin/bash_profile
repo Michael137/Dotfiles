@@ -1,0 +1,148 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+### Colors
+pmt_col_yellow="\[$(tput setaf 3)\]"
+pmt_col_blue="\[$(tput setaf 4)\]"
+pmt_col_magenta="\[$(tput setaf 5)\]"
+pmt_col_reset="\[$(tput sgr0)\]"
+pmt_col_green="\[$(tput setaf 2)\]"
+pmt_col_bright_yellow="\[\033[38;5;11m\]"
+pmt_col_orange="\[\033[38;5;208m\]"
+pmt_bg_col_dark_gray="\[\033[48;5;59m\]"
+
+### Prompts
+source ~/.git-prompt.sh
+
+default_prompt() {
+	export PS1="\u@\h:\w\$"	
+}
+
+no_frills_prompt() {
+	export PS1="(\!)|\h|\u|\w|\n\$ "
+}
+
+custom_prompt() {
+	export PS1="${pmt_col_orange}\u${pmt_col_reset}@${pmt_col_magenta}\h${pmt_col_reset}:${pmt_col_yellow}\w${pmt_col_reset}${pmt_col_blue}$(__git_ps1 ' (%s)')${pmt_col_reset}\n\$ "
+}
+
+init_dtrace() {
+	local load_script="~/Git/os/freebsd/dtrace/load_dtrace.sh"
+	if [ -f $load_script ]
+	then
+		. $load_script
+		load_dtrace_ker_mods
+	fi
+}
+
+dtrace() {
+	sudo dtrace
+}
+
+gittok() {
+    gpg --decrypt -q $HOME/.gtok.gpg | pbcopy
+}
+
+if [ $(uname) = 'FreeBSD' ]; then
+	alias make='gmake'
+fi
+
+### Main
+# default_prompt
+custom_prompt
+# no_frills_prompt
+
+export EDITOR=vim
+export BASHRC_WORKING_DIR="$HOME/Git/"
+export BASHRC_HACKING_DIR="$HOME/"
+
+alias vimrc='vim ~/.vimrc'
+alias bashrc='vim ~/.bash_profile'
+alias tmuxrc='vim ~/.tmux.conf'
+alias gdd='cd ~/Git/Dotfiles/unix'
+alias gdos='cd ~/Git/os'
+alias gdg='cd ~/Git'
+alias gdh='cd ~/Hacking'
+alias gdw='cd "$BASHRC_WORKING_DIR"'
+alias chd='cd "$BASHRC_HACKING_DIR"'
+alias tma='tmux attach'
+alias tmd='tmux detach'
+alias tmux="TERM=xterm-256color tmux -2" # to make some vim colorschemes work (e.g., badwolf)
+
+export PATH=$PATH:/opt/homebrew/bin
+
+# export PATH=/home/mib/opt/bin:/home/mib/.local/bin:$PATH
+# export LD_LIBRARY_PATH=/home/mib/opt/lib64:/home/mib/opt/lib:$LD_LIBRARY_PATH
+
+# For FindBoost.cmake
+# export BOOST_ROOT=/home/mib/opt
+
+init_dtrace
