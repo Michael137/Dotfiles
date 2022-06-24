@@ -138,6 +138,12 @@ alias tmd='tmux detach'
 alias tmux="TERM=xterm-256color tmux -2" # to make some vim colorschemes work (e.g., badwolf)
 
 export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/Applications/CMake.app/Contents/bin
+export PATH=$PATH:/Users/michaelbuch/Library/Python/3.8/bin
+export PATH=$PATH:/opt/homebrew/opt/sphinx-doc/bin
+export PATH=$PATH:$HOME/Git/arcanist/bin
+export PATH=$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
+# export PATH=$PATH:$HOME/Git/lldb-build-org/bin
 
 # export PATH=/home/mib/opt/bin:/home/mib/.local/bin:$PATH
 # export LD_LIBRARY_PATH=/home/mib/opt/lib64:/home/mib/opt/lib:$LD_LIBRARY_PATH

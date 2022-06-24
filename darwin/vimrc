@@ -1,45 +1,35 @@
-" Vundle
-" When adding new plugins call: "PluginInstall"
+" vim-plug
+" When adding new plugins call: "PlugInstall"
 
-" fish shell clashes with vundle
-if executable("/bin/bash")
-	set shell=/bin/bash
-else
-	set shell=/usr/local/bin/bash
-endif
 set nocompatible
 syntax on
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin()
 
 "" Always-on plugins
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'shirk/vim-gas'
-Plugin 'rhysd/vim-clang-format'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'flazz/vim-colorschemes'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'shirk/vim-gas'
+Plug 'rhysd/vim-clang-format'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+" c++ code completion/LSP support
+"" Might need to go into ~/.vim/plugged/coc.nvim and
+"" run git checkout release
+Plug 'neoclide/coc.nvim'
 
 "" Misc.
 " Plugin 'rust-lang/rust.vim'
 " Plugin 'jrozner/vim-antlr'
 " Plugin 'neovimhaskell/haskell-vim'
-Plugin 'whonore/coqtail'
-Plugin 'dense-analysis/ale'
+Plug 'whonore/coqtail'
 
-call vundle#end()
+call plug#end()
+
 filetype plugin indent on
-
-" Pathogen
-execute pathogen#infect()
-
-" Vim 
-
-" For YouCompleteMe plugin
-set encoding=utf-8
 
 " Leader
 let mapleader = "\<Space>"
@@ -47,15 +37,21 @@ let mapleader = "\<Space>"
 " Hotkeys
 set pastetoggle=<F2>
 
+" Backspace
+"set backspace=2
+
 " Tabs
-set noet ci pi sw=4 ts=4
+set et ci pi sw=4 ts=4
 
 " vim-airline
-" let g:airline_theme='angr'
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 set t_Co=256
+
+" Colors
+" colorscheme elflord
+colorscheme badwolf
 
 " Case-insensitive search unless capital letters
 " appear in searched term. Case-sensitive
@@ -63,42 +59,14 @@ set t_Co=256
 set ignorecase
 set smartcase
 
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" airline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-
-" Colors
-" colorscheme elflord
-colorscheme badwolf
-
 " Mouse settings
 set mouse=a
 
+"let g:iscoq= "coq" ==? &ft
 " Whitespace
-"set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+"if g:iscoq == 0
+"	set list listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<,space:·
+"endif
 hi SpecialKey ctermfg=247 ctermbg=234
 
 " Highlighting
@@ -123,90 +91,24 @@ let g:EasyMotion_startofline = 0
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-" vim-clang-format
-let g:clang_format#style_options = {
-\ "Language" : "Cpp",
-\ "AlignAfterOpenBracket " : "Align",
-\ "AlignConsecutiveAssignments" : "true",
-\ "AlignConsecutiveDeclarations": "false",
-\ "AlignEscapedNewlines" : "Right",
-\ "AlignOperands" : "true",
-\ "AlignTrailingComments" : "true",
-\ "AllowAllParametersOfDeclarationOnNextLine" : "false",
-\ "AllowShortBlocksOnASingleLine" : "true",
-\ "AllowShortCaseLabelsOnASingleLine" : "true",
-\ "AllowShortFunctionsOnASingleLine" : "All",
-\ "AllowShortIfStatementsOnASingleLine" : "false",
-\ "AllowShortLoopsOnASingleLine" : "false",
-\ "AlwaysBreakAfterDefinitionReturnType" : "None",
-\ "AlwaysBreakAfterReturnType" : "None",
-\ "AlwaysBreakBeforeMultilineStrings" : "false",
-\ "AlwaysBreakTemplateDeclarations" : "false",
-\ "BinPackArguments" : "true",
-\ "BinPackParameters" : "true",
-\ "BreakBeforeBinaryOperators" : "All",
-\ "BreakBeforeBraces" : "Allman",
-\ "BreakBeforeInheritanceComma" : "false",
-\ "BreakBeforeTernaryOperators" : "true",
-\ "BreakConstructorInitializersBeforeComma" : "false",
-\ "BreakConstructorInitializers" : "BeforeComma",
-\ "BreakStringLiterals" : "true",
-\ "ColumnLimit": 80,
-\ "CompactNamespaces" : "false",
-\ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "false",
-\ "ConstructorInitializerIndentWidth": 4,
-\ "ContinuationIndentWidth": 4,
-\ "Cpp11BracedListStyle" : "true",
-\ "DerivePointerAlignment" : "false",
-\ "DisableFormat" : "false",
-\ "ExperimentalAutoDetectBinPacking" : "false",
-\ "FixNamespaceComments" : "true",
-\ "IncludeBlocks" : "Preserve",
-\ "IndentCaseLabels" : "true",
-\ "IndentPPDirectives" : "AfterHash",
-\ "IndentWidth": 4,
-\ "IndentWrappedFunctionNames" : "false",
-\ "KeepEmptyLinesAtTheStartOfBlocks" : "false",
-\ "MaxEmptyLinesToKeep": 1,
-\ "NamespaceIndentation" : "None",
-\ "PenaltyBreakAssignment": 2,
-\ "PenaltyBreakBeforeFirstCallParameter": 19,
-\ "PenaltyBreakComment": 300,
-\ "PenaltyBreakFirstLessLess": 120,
-\ "PenaltyBreakString": 1000,
-\ "PenaltyExcessCharacter": 1000000,
-\ "PenaltyReturnTypeOnItsOwnLine": 60,
-\ "PointerAlignment" : "Left",
-\ "ReflowComments" : "true",
-\ "SortIncludes" : "true",
-\ "SortUsingDeclarations" : "true",
-\ "SpaceAfterCStyleCast" : "false",
-\ "SpaceAfterTemplateKeyword" : "false",
-\ "SpaceBeforeAssignmentOperators" : "true",
-\ "SpaceBeforeCtorInitializerColon" : "true",
-\ "SpaceBeforeInheritanceColon" : "true",
-\ "SpaceBeforeParens" : "Never",
-\ "SpaceBeforeRangeBasedForLoopColon" : "false",
-\ "SpaceInEmptyParentheses" : "false",
-\ "SpacesBeforeTrailingComments": 1,
-\ "SpacesInAngles" : "false",
-\ "SpacesInContainerLiterals" : "true",
-\ "SpacesInCStyleCastParentheses" : "false",
-\ "SpacesInParentheses" : "true",
-\ "SpacesInSquareBrackets" : "false",
-\ "Standard" : "Cpp11",
-\ "TabWidth": 4,
-\ "UseTab" : "ForIndentation" }
-
 " Hybrid line numbers
 set nu relativenumber
 
 "" Tool shortcuts
 " Spell checker
 map <F6> :setlocal spell spelllang=en_us<CR>
+
 " Formatters
-autocmd FileType cpp,c map <C-f> :ClangFormat<CR>
+let g:clang_format#detect_style_file = 1
+
+" Install from: https://github.com/umaumax/cmake_format
+function CmakeFormat()
+	let _ = system("cmake-format -i " . expand('%:p'))
+endfunction
+
 autocmd FileType rust map <C-f> :RustFmt<CR>
+autocmd FileType c,cpp map <C-f> :ClangFormat<CR>
+autocmd FileType cmake map <C-f> :call CmakeFormat()<CR>:edit<CR>
 
 "" Guides
 " Navigation
@@ -248,12 +150,12 @@ inoremap <C-v> x<C-c>"+Plxa
 execute "set <M-w>=\ew"
 execute "set <M-q>=\eq"
 execute "set <M-x>=\ex"
-inoremap <C-w> <Esc>:w<CR>
-inoremap <C-q> <Esc>:q<CR>
-inoremap <C-x> <Esc>:x<CR>
-noremap <C-w> <Esc>:w<CR>
-noremap <C-q> <Esc>:q<CR>
-noremap <C-x> <Esc>:x<CR>
+inoremap <M-w> <Esc>:w<CR>
+inoremap <M-q> <Esc>:q<CR>
+inoremap <M-x> <Esc>:x<CR>
+noremap <M-w> <Esc>:w<CR>
+noremap <M-q> <Esc>:q<CR>
+noremap <M-x> <Esc>:x<CR>
 
 " Random shortcuts
 "" Capitalize word
@@ -277,7 +179,7 @@ noremap <S-l> gt
 " When opening multiple files e.g. vim *.cpp
 " use :tab all to open them in tabs
 execute "set <M-t>=\et"
-noremap <C-T> <Esc>:tab all<CR>
+noremap <M-t> <Esc>:tab all<CR>
 
 inoremap jk <Esc>
 
@@ -308,7 +210,7 @@ autocmd FileType haskell inoremap ;m main :: IO()<CR>main = do<Enter>
 
 " Coqtail remapping
 autocmd FileType coq nmap <C-s> <leader>cc
-autocmd FileType coq nmap <C-e> i<++><Esc><leader>cq
+autocmd FileType coq nmap <C-e> <leader>cq
 autocmd FileType coq nmap <C-j> <leader>cj
 autocmd FileType coq nmap <C-k> <leader>ck
 autocmd FileType coq nmap <C-l> <leader>cl
@@ -317,7 +219,7 @@ autocmd FileType coq nmap <C-T> <leader>cT
 autocmd FileType coq nmap <C-G> <leader>cG
 "" Coq query commands
 """ Show type of term under cursor
-autocmd FileType coq nmap <C-h> <leader>ch 
+autocmd FileType coq nmap <C-h> <leader>ch
 """ Show info of term under cursor
 autocmd FileType coq nmap <C-a> <leader>ca
 """ Show definition of term under cursor
@@ -329,3 +231,9 @@ autocmd FileType coq nmap <C-s> <leader>cs
 
 autocmd FileType coq nmap <C-c> i(*  *)<Esc>2<Left>i
 autocmd FileType coq inoremap jk <Esc>:CoqToLine<CR>i<Esc>A
+
+" Move around split panes in Coq
+autocmd FileType coq noremap <C-[> <C-W>h
+autocmd FileType coq noremap <C-]> <C-W>l
+
+source /Users/michaelbuch/.vimrc_coc_clangd

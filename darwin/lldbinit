@@ -1,0 +1,2 @@
+command script import /Users/michaelbuch/.lldb/ClangDataFormat.py
+command script import /Users/michaelbuch/Git/llvm-project/llvm/utils/lldbDataFormatters.py
