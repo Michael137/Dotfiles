@@ -18,7 +18,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " c++ code completion/LSP support
 "" Might need to go into ~/.vim/plugged/coc.nvim and
-"" run git checkout release
+"" run:
+""   git checkout release
+"" Then from vim run:
+""   CocInstall coc-clangd
+""   CocInstall coc-pyright
 Plug 'neoclide/coc.nvim'
 
 "" Misc.
