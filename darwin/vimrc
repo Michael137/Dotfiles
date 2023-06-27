@@ -15,6 +15,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'shirk/vim-gas'
 Plug 'rhysd/vim-clang-format'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
 
 " c++ code completion/LSP support
 "" Might need to go into ~/.vim/plugged/coc.nvim and
@@ -139,6 +141,10 @@ inoremap ;{ {} <++><Esc>F}i
 inoremap ;< <> <++><Esc>F>i
 inoremap ;{<Enter> {<Enter><Enter>}<Esc><UP>i<Tab>
 inoremap ;/*<CR> /*<CR><Esc>0R** <CR>*/<Enter><++><Esc><UP><UP>A
+
+"" fzf
+execute "set <M-f>=\ef"
+nnoremap <silent> <M-f> :Files<CR>
 
 "" Latex previewer
 " for Vim plugin
