@@ -17,6 +17,7 @@ Plug 'rhysd/vim-clang-format'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tikhomirov/vim-glsl'
 
 " c++ code completion/LSP support
 "" Might need to go into ~/.vim/plugged/coc.nvim and
@@ -25,7 +26,7 @@ Plug 'tpope/vim-fugitive'
 "" Then from vim run:
 ""   CocInstall coc-clangd
 ""   CocInstall coc-pyright
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "" Misc.
 " Plugin 'rust-lang/rust.vim'
@@ -34,6 +35,8 @@ Plug 'neoclide/coc.nvim'
 Plug 'whonore/coqtail'
 
 call plug#end()
+
+"let g:RadarPluginMyPersonID = "2701044524"
 
 filetype plugin indent on
 
@@ -227,23 +230,9 @@ autocmd FileType coq nmap <C-l> <leader>cl
 "" TODO: would be better bound to ctrl+home/ctrl+end
 autocmd FileType coq nmap <C-T> <leader>cT
 autocmd FileType coq nmap <C-G> <leader>cG
-"" Coq query commands
-""" Show type of term under cursor
-autocmd FileType coq nmap <C-h> <leader>ch
-""" Show info of term under cursor
-autocmd FileType coq nmap <C-a> <leader>ca
-""" Show definition of term under cursor
-autocmd FileType coq nmap <C-p> <leader>cp
-""" Show location of definition of term under cursor
-autocmd FileType coq nmap <C-f> <leader>cf
-""" Search term under cursor
-autocmd FileType coq nmap <C-s> <leader>cs
 
-autocmd FileType coq nmap <C-c> i(*  *)<Esc>2<Left>i
-autocmd FileType coq inoremap jk <Esc>:CoqToLine<CR>i<Esc>A
-
-" Move around split panes in Coq
-autocmd FileType coq noremap <C-[> <C-W>h
-autocmd FileType coq noremap <C-]> <C-W>l
+nnoremap <leader>g :Git show <cword><CR>
 
 source /Users/michaelbuch/.vimrc_coc_clangd
+
+noremap <F3> "+
