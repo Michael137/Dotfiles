@@ -19,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tikhomirov/vim-glsl'
 Plug 'preservim/nerdtree'
-Plug 'letorbi/vim-colors-modern-borland'
+" Plug 'letorbi/vim-colors-modern-borland'
 
 " c++ code completion/LSP support
 "" Might need to go into ~/.vim/plugged/coc.nvim and
@@ -64,8 +64,9 @@ set t_Co=256
 " Colors
 " colorscheme elflord
 colorscheme badwolf
+" colorscheme borland
 
-" let g:BorlandStyle='modern'
+let g:BorlandStyle='classic'
 
 " Case-insensitive search unless capital letters
 " appear in searched term. Case-sensitive
