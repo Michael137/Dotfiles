@@ -18,6 +18,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tikhomirov/vim-glsl'
+Plug 'preservim/nerdtree'
+Plug 'letorbi/vim-colors-modern-borland'
 
 " c++ code completion/LSP support
 "" Might need to go into ~/.vim/plugged/coc.nvim and
@@ -48,6 +50,7 @@ set pastetoggle=<F2>
 
 " Backspace
 "set backspace=2
+set backspace=indent,eol,start
 
 " Tabs
 set et ci pi sw=4 ts=4
@@ -61,6 +64,8 @@ set t_Co=256
 " Colors
 " colorscheme elflord
 colorscheme badwolf
+
+" let g:BorlandStyle='modern'
 
 " Case-insensitive search unless capital letters
 " appear in searched term. Case-sensitive
@@ -236,3 +241,8 @@ nnoremap <leader>g :Git show <cword><CR>
 source /Users/michaelbuch/.vimrc_coc_clangd
 
 noremap <F3> "+
+
+set mps+=<:>
+
+" NERDTree shortcuts
+nnoremap <C-t> :NERDTreeToggle<CR>
