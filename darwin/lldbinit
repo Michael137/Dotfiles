@@ -1,2 +1,18 @@
-command script import /Users/michaelbuch/.lldb/ClangDataFormat.py
-command script import /Users/michaelbuch/Git/llvm-project/llvm/utils/lldbDataFormatters.py
+#sett set target.process.thread.step-avoid-regexp ""
+sett set stop-line-count-after 10
+sett set stop-line-count-before 10
+
+settings set target.max-children-count 6
+
+command script import ~/.lldb/bt.py
+command script import ~/.lldb/step_then_disasm.py
+command script import ~/.lldb/expr.py
+command script import /Users/michaelbuch/Git/llvm-worktrees/main/llvm/utils/lldbDataFormatters.py
+
+command alias vtype frame var -D 0
+
+settings set plugin.cplusplus.display.function-name-format "${ansi.fg.black}${ansi.bg.green}${function.basename}${ansi.normal}${function.formatted-arguments}"
+
+# Experimental import scripts
+command script import /Users/michaelbuch/Git/llvm-worktrees/main/lldb/examples/summaries/lldb
+command script import lldb.macosx.heap

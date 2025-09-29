@@ -111,6 +111,14 @@ gittok() {
     gpg --decrypt -q $HOME/.gtok.gpg | pbcopy
 }
 
+hex() {
+    lldb -b -o "p/x $1"
+}
+
+dec() {
+    lldb -b -o "p $1"
+}
+
 if [ $(uname) = 'FreeBSD' ]; then
 	alias make='gmake'
 fi
@@ -131,24 +139,52 @@ alias gdd='cd ~/Git/Dotfiles/unix'
 alias gdos='cd ~/Git/os'
 alias gdg='cd ~/Git'
 alias gdh='cd ~/Hacking'
-alias gdw='cd "$BASHRC_WORKING_DIR"'
+alias gdw='cd ~/Git/llvm-worktrees'
+alias gds='cd /Volumes/SSD'
 alias chd='cd "$BASHRC_HACKING_DIR"'
 alias tma='tmux attach'
 alias tmd='tmux detach'
 alias tmux="TERM=xterm-256color tmux -2" # to make some vim colorschemes work (e.g., badwolf)
-
+alias lldblog="~/Git/lldb-build-main-no-modules/bin/lldb -o \"log enable lldb expr types -f /tmp/lldb.log\""
+alias cas="xcrun cache-build-session" # prepend to 'ninja' commands to enable build caching
+alias cdback="cd ~; cd -"
+alias coq=". ~/coq-shell~8.18~2023.11.command"
+alias pbrehex="pbpaste | python3 ~/bin/rehex.py | pbcopy"
+alias commits="git shortlog -s | sort --reverse"
+         
+export PATH=$PATH:~/bin
 export PATH=$PATH:/opt/homebrew/bin
+export PATH=$PATH:/opt/homebrew/include
 export PATH=$PATH:/Applications/CMake.app/Contents/bin
-export PATH=$PATH:/Users/michaelbuch/Library/Python/3.8/bin
-export PATH=$PATH:/opt/homebrew/opt/sphinx-doc/bin
+#export PATH=$PATH:/Users/michaelbuch/Library/Python/3.8/bin
+#export PATH=$PATH:/Users/michaelbuch/Library/Python/3.9/bin
+#export PATH=$PATH:/opt/homebrew/opt/sphinx-doc/bin
 export PATH=$PATH:$HOME/Git/arcanist/bin
 export PATH=$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin
 # export PATH=$PATH:$HOME/Git/lldb-build-org/bin
 
-# export PATH=/home/mib/opt/bin:/home/mib/.local/bin:$PATH
 # export LD_LIBRARY_PATH=/home/mib/opt/lib64:/home/mib/opt/lib:$LD_LIBRARY_PATH
+export LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/homebrew/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/homebrew/lib
+
+# for intercept-build
+export PATH=$PATH:/Users/michaelbuch/Library/Python/3.9/bin/
+
+export PATH=$PATH:$HOME/opt/bin
+
+#export LLVM_CACHE_CAS_PATH=/Volumes/SSD/CAS-cache
+export LLVM_CACHE_CAS_PATH=/Users/michaelbuch/CAS-cache
+export CLANG_CACHE_VERIFY_MCCAS=1
 
 # For FindBoost.cmake
 # export BOOST_ROOT=/home/mib/opt
 
 init_dtrace
+export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"
+. "$HOME/.cargo/env"
+
+source ~/perl5/perlbrew/etc/bashrc 
+export PATH="$PATH:/opt/homebrew/opt/binutils/bin"
+
+export PATH="$HOME/.elan/bin:$PATH"

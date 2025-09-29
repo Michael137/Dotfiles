@@ -1,0 +1,44 @@
+[user]
+	email = michaelbuch12@gmail.com
+	name = Michael Buch
+[sendemail]
+	transferEncoding = base64
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[color]
+    ui = true
+
+# clearly makes git better
+
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[init]
+        defaultBranch = main
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+
+[help]
+        autocorrect = prompt
+[commit]
+        verbose = true
+[core]
+        excludesfile = ~/.gitignore
+
+[core]
+        fsmonitor = true
+        untrackedCache = true
+[pull]
+        rebase = true

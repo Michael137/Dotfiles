@@ -7,12 +7,8 @@ alias vimrc='vim ~/.vimrc'
 alias bashrc='vim ~/.bash_profile'
 alias zshrc='vim ~/.zshrc'
 alias tmuxrc='vim ~/.tmux.conf'
-alias gdd='cd ~/Git/Dotfiles/unix'
-alias gdos='cd ~/Git/os'
 alias gdg='cd ~/Git'
-alias gdr='cd ~/Apple-internal/Radar'
 alias gda='cd ~/Apple-internal'
-alias gdh='cd ~/Hacking'
 alias gdw='cd ~/Git/llvm-worktrees'
 alias gds='cd /Volumes/SSD'
 alias gdsa='cd /Volumes/SSD/Apple-internal'
@@ -25,6 +21,8 @@ alias cdback="cd ~; cd -"
 alias coq=". ~/coq-shell~8.18~2023.11.command"
 alias pbrehex="pbpaste | python3 ~/bin/rehex.py | pbcopy"
 alias commits="git shortlog -s | sort --reverse"
+alias build-lldb-rel=". /Users/michaelbuch/.build-rel.sh"
+alias build-lldb-dbg=". /Users/michaelbuch/.build-dbg.sh"
          
 export PATH=$PATH:~/bin
 export PATH=$PATH:/opt/homebrew/bin
@@ -34,15 +32,17 @@ export LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/homebrew/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/homebrew/lib
 
 #export LLVM_CACHE_CAS_PATH=/Volumes/SSD/CAS-cache
-export LLVM_CACHE_CAS_PATH=/Users/jonas/CAS-cache
+export LLVM_CACHE_CAS_PATH=/Users/michaelbuch/CAS-cache
 export CLANG_CACHE_VERIFY_MCCAS=1
 
 export PATH="$PATH:/opt/homebrew/opt/binutils/bin"
+export PATH="$PATH:/Users/michaelbuch/Library/Python/3.13/bin"
 
 # For git clang-format
-export PATH="${PATH}:/Users/jonas/Git/llvm-project/clang/tools/clang-format/"
+export PATH="${PATH}:/Users/michaelbuch/Git/llvm-project/clang/tools/clang-format/"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 # Custom prompt
 autoload -Uz vcs_info
@@ -52,9 +52,13 @@ NEWLINE=$'\n'
 setopt PROMPT_SUBST
 PROMPT='%F{green}%~%f %F{blue}${vcs_info_msg_0_}%f${NEWLINE}$ '
 
-# Key bindings
+# Stop ctrl-w at delimiter
 autoload -U select-word-style
 select-word-style bash
+
+# Key bindings
+# Docs: https://zsh.sourceforge.io/Doc/Release/Zsh-Line-Editor.html
+#       https://zsh.sourceforge.io/Doc/Release/User-Contributions.html
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 bindkey "^k" kill-line
@@ -62,12 +66,43 @@ bindkey "^w" backward-kill-word
 bindkey "^f" vi-forward-char
 bindkey "^b" vi-backward-char
 bindkey "^d" delete-char
-bindkey "^y" vi-put-after
+bindkey "^y" yank
 bindkey "^[f" vi-forward-word
 bindkey "^[b" vi-backward-word
 bindkey "^[d" kill-word
 
-# Increase history size from the default of  10,000
-HISTSIZE=1000000
+# Ignore files that .gitignore ignores
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+# Don't ignore .gitignore files for ctrl+T because we want to locate items in the builds directory. But still ignore stuff in .cache/etc.
+export FZF_CTRL_T_COMMAND='fd --no-ignore --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude .cache'
 
-setopt inc_append_history
+# Tab to complete paths
+autoload -Uz compinit
+compinit
+
+confirm_and_sudo_rm() {
+  local file="$1"
+
+  if [[ -z "$file" ]]; then
+    echo "Usage: confirm_and_sudo_rm <file_path>"
+    return 1
+  fi
+
+  if [[ -e "$file" ]]; then
+    echo "File '$file' exists."
+    read -q "REPLY?Are you sure you want to remove it with sudo? [y/N] "
+    echo
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+      sudo rm -r "$file"
+      if [[ $? -eq 0 ]]; then
+        echo "File '$file' removed successfully."
+      else
+        echo "Failed to remove '$file'."
+      fi
+    else
+      echo "Aborted. File was not removed."
+    fi
+  fi
+}
+
+confirm_and_sudo_rm "/Library/Developer/CommandLineTools"
